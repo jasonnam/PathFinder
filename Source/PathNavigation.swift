@@ -59,4 +59,8 @@ public extension Path {
     public subscript(name: String) -> Path {
         return Path(fromString: rawValue.stringByAppendingPathComponent(name))
     }
+
+    public subscript(path: Path) -> Path {
+        return Path(fromString: rawValue.stringByAppendingPathComponent(path.rawValue))
+    }
 }
