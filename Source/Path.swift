@@ -59,6 +59,10 @@ public class Path {
         return Path(searchPathDirectory: .DocumentDirectory)
     }
 
+    public static var libraryDirectory: Path {
+        return Path(searchPathDirectory: .LibraryDirectory)
+    }
+
     public static var cacheDirectory: Path {
         return Path(searchPathDirectory: .CachesDirectory)
     }
