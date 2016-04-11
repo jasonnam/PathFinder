@@ -13,6 +13,7 @@
 		EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
 		EC3DD8EC1C8750FA005FFCE5 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DD8ED1C8750FA005FFCE5 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
+		ECD5E09D1CBB9BE800D4A07A /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EC8534681C3A547C004E2EEA /* PathError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathError.swift; path = Source/PathError.swift; sourceTree = "<group>"; };
 		EC85346A1C3A547C004E2EEA /* PathNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathNavigation.swift; path = Source/PathNavigation.swift; sourceTree = "<group>"; };
 		EC85346B1C3A547C004E2EEA /* String+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Path.swift"; path = "Source/String+Path.swift"; sourceTree = "<group>"; };
+		ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PathFinder.h; path = Source/PathFinder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		EC8534501C3A521C004E2EEA = {
 			isa = PBXGroup;
 			children = (
+				ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */,
 				EC8534651C3A547C004E2EEA /* Path.swift */,
 				EC8534661C3A547C004E2EEA /* PathAction.swift */,
 				EC8534671C3A547C004E2EEA /* PathAttribute.swift */,
@@ -66,6 +69,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD5E09D1CBB9BE800D4A07A /* PathFinder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
