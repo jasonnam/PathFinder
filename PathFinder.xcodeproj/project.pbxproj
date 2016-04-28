@@ -13,10 +13,34 @@
 		EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
 		EC3DD8EC1C8750FA005FFCE5 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DD8ED1C8750FA005FFCE5 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
+		EC3DFA951CD1FBF100961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
+		EC3DFA961CD1FBF100961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
+		EC3DFA971CD1FBF100961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
+		EC3DFA981CD1FBF100961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
+		EC3DFA991CD1FBF100961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
+		EC3DFA9A1CD1FBF100961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
+		EC3DFA9B1CD1FBFA00961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3DFA9C1CD1FC4400961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
+		EC3DFA9D1CD1FC4400961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
+		EC3DFA9E1CD1FC4400961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
+		EC3DFA9F1CD1FC4400961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
+		EC3DFAA01CD1FC4400961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
+		EC3DFAA11CD1FC4400961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
+		EC3DFAA21CD1FC4600961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3DFAA31CD1FC5B00961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
+		EC3DFAA41CD1FC5B00961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
+		EC3DFAA51CD1FC5B00961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
+		EC3DFAA61CD1FC5B00961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
+		EC3DFAA71CD1FC5B00961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
+		EC3DFAA81CD1FC5B00961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
+		EC3DFAA91CD1FC5F00961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECD5E09D1CBB9BE800D4A07A /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC3DFA731CD1FB5400961BE0 /* PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC3DFA801CD1FBA400961BE0 /* PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC3DFA8D1CD1FBB700961BE0 /* PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC85345A1C3A521C004E2EEA /* PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC85345F1C3A521D004E2EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		EC8534651C3A547C004E2EEA /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Path.swift; path = Source/Path.swift; sourceTree = "<group>"; };
@@ -29,6 +53,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EC3DFA6F1CD1FB5400961BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA7C1CD1FBA400961BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA891CD1FBB700961BE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC8534561C3A521C004E2EEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				EC85345A1C3A521C004E2EEA /* PathFinder.framework */,
+				EC3DFA731CD1FB5400961BE0 /* PathFinder.framework */,
+				EC3DFA801CD1FBA400961BE0 /* PathFinder.framework */,
+				EC3DFA8D1CD1FBB700961BE0 /* PathFinder.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +113,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		EC3DFA701CD1FB5400961BE0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFA9B1CD1FBFA00961BE0 /* PathFinder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA7D1CD1FBA400961BE0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFAA21CD1FC4600961BE0 /* PathFinder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA8A1CD1FBB700961BE0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFAA91CD1FC5F00961BE0 /* PathFinder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC8534571C3A521C004E2EEA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +148,60 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		EC3DFA721CD1FB5400961BE0 /* PathFinder OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC3DFA781CD1FB5400961BE0 /* Build configuration list for PBXNativeTarget "PathFinder OSX" */;
+			buildPhases = (
+				EC3DFA6E1CD1FB5400961BE0 /* Sources */,
+				EC3DFA6F1CD1FB5400961BE0 /* Frameworks */,
+				EC3DFA701CD1FB5400961BE0 /* Headers */,
+				EC3DFA711CD1FB5400961BE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PathFinder OSX";
+			productName = "PathFinder OSX";
+			productReference = EC3DFA731CD1FB5400961BE0 /* PathFinder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EC3DFA7F1CD1FBA400961BE0 /* PathFinder tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC3DFA851CD1FBA400961BE0 /* Build configuration list for PBXNativeTarget "PathFinder tvOS" */;
+			buildPhases = (
+				EC3DFA7B1CD1FBA400961BE0 /* Sources */,
+				EC3DFA7C1CD1FBA400961BE0 /* Frameworks */,
+				EC3DFA7D1CD1FBA400961BE0 /* Headers */,
+				EC3DFA7E1CD1FBA400961BE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PathFinder tvOS";
+			productName = "PathFinder tvOS";
+			productReference = EC3DFA801CD1FBA400961BE0 /* PathFinder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EC3DFA8C1CD1FBB700961BE0 /* PathFinder watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC3DFA921CD1FBB700961BE0 /* Build configuration list for PBXNativeTarget "PathFinder watchOS" */;
+			buildPhases = (
+				EC3DFA881CD1FBB700961BE0 /* Sources */,
+				EC3DFA891CD1FBB700961BE0 /* Frameworks */,
+				EC3DFA8A1CD1FBB700961BE0 /* Headers */,
+				EC3DFA8B1CD1FBB700961BE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PathFinder watchOS";
+			productName = "PathFinder watchOS";
+			productReference = EC3DFA8D1CD1FBB700961BE0 /* PathFinder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		EC8534591C3A521C004E2EEA /* PathFinder iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC8534621C3A521D004E2EEA /* Build configuration list for PBXNativeTarget "PathFinder iOS" */;
@@ -103,6 +229,15 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jason Nam";
 				TargetAttributes = {
+					EC3DFA721CD1FB5400961BE0 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					EC3DFA7F1CD1FBA400961BE0 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					EC3DFA8C1CD1FBB700961BE0 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					EC8534591C3A521C004E2EEA = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -121,11 +256,35 @@
 			projectRoot = "";
 			targets = (
 				EC8534591C3A521C004E2EEA /* PathFinder iOS */,
+				EC3DFA721CD1FB5400961BE0 /* PathFinder OSX */,
+				EC3DFA7F1CD1FBA400961BE0 /* PathFinder tvOS */,
+				EC3DFA8C1CD1FBB700961BE0 /* PathFinder watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EC3DFA711CD1FB5400961BE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA7E1CD1FBA400961BE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA8B1CD1FBB700961BE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC8534581C3A521C004E2EEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,15 +295,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EC3DFA6E1CD1FB5400961BE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFA951CD1FBF100961BE0 /* Path.swift in Sources */,
+				EC3DFA961CD1FBF100961BE0 /* PathAttribute.swift in Sources */,
+				EC3DFA971CD1FBF100961BE0 /* PathAction.swift in Sources */,
+				EC3DFA981CD1FBF100961BE0 /* PathNavigation.swift in Sources */,
+				EC3DFA991CD1FBF100961BE0 /* PathError.swift in Sources */,
+				EC3DFA9A1CD1FBF100961BE0 /* String+Path.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA7B1CD1FBA400961BE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFA9C1CD1FC4400961BE0 /* Path.swift in Sources */,
+				EC3DFA9D1CD1FC4400961BE0 /* PathAttribute.swift in Sources */,
+				EC3DFA9E1CD1FC4400961BE0 /* PathAction.swift in Sources */,
+				EC3DFA9F1CD1FC4400961BE0 /* PathNavigation.swift in Sources */,
+				EC3DFAA01CD1FC4400961BE0 /* PathError.swift in Sources */,
+				EC3DFAA11CD1FC4400961BE0 /* String+Path.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC3DFA881CD1FBB700961BE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3DFAA31CD1FC5B00961BE0 /* Path.swift in Sources */,
+				EC3DFAA41CD1FC5B00961BE0 /* PathAttribute.swift in Sources */,
+				EC3DFAA51CD1FC5B00961BE0 /* PathAction.swift in Sources */,
+				EC3DFAA61CD1FC5B00961BE0 /* PathNavigation.swift in Sources */,
+				EC3DFAA71CD1FC5B00961BE0 /* PathError.swift in Sources */,
+				EC3DFAA81CD1FC5B00961BE0 /* String+Path.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EC8534551C3A521C004E2EEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EC3DD8E81C8750FA005FFCE5 /* Path.swift in Sources */,
-				EC3DD8E91C8750FA005FFCE5 /* PathAction.swift in Sources */,
 				EC3DD8EA1C8750FA005FFCE5 /* PathAttribute.swift in Sources */,
-				EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */,
+				EC3DD8E91C8750FA005FFCE5 /* PathAction.swift in Sources */,
 				EC3DD8EC1C8750FA005FFCE5 /* PathNavigation.swift in Sources */,
+				EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */,
 				EC3DD8ED1C8750FA005FFCE5 /* String+Path.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +350,130 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		EC3DFA791CD1FB5400961BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-OSX";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EC3DFA7A1CD1FB5400961BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-OSX";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		EC3DFA861CD1FBA400961BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-tvOS";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		EC3DFA871CD1FBA400961BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-tvOS";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		EC3DFA931CD1FBB700961BE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-watchOS";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		EC3DFA941CD1FBB700961BE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-watchOS";
+				PRODUCT_NAME = PathFinder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 		EC8534601C3A521D004E2EEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -190,6 +512,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -232,6 +555,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -279,6 +603,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EC3DFA781CD1FB5400961BE0 /* Build configuration list for PBXNativeTarget "PathFinder OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC3DFA791CD1FB5400961BE0 /* Debug */,
+				EC3DFA7A1CD1FB5400961BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EC3DFA851CD1FBA400961BE0 /* Build configuration list for PBXNativeTarget "PathFinder tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC3DFA861CD1FBA400961BE0 /* Debug */,
+				EC3DFA871CD1FBA400961BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EC3DFA921CD1FBB700961BE0 /* Build configuration list for PBXNativeTarget "PathFinder watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC3DFA931CD1FBB700961BE0 /* Debug */,
+				EC3DFA941CD1FBB700961BE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		EC8534541C3A521C004E2EEA /* Build configuration list for PBXProject "PathFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
