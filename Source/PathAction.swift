@@ -40,7 +40,7 @@ public extension Path {
 
             let newPath = rawValue.stringByAppendingPathComponent(subPath)
             try fileManager.createDirectoryAtPath(newPath, withIntermediateDirectories: true, attributes: nil)
-            return Path(fromString: newPath)
+            return Path(newPath)
         } catch {
             throw error
         }

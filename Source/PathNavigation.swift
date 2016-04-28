@@ -36,7 +36,7 @@ public extension Path {
             var file: [Path] = []
 
             for content in contents {
-                let contentPath = Path(fromString: rawValue.stringByAppendingPathComponent(content))
+                let contentPath = Path(rawValue.stringByAppendingPathComponent(content))
 
                 if !(exclude != nil && exclude!.contains(content)) {
                     if contentPath.isDirectory {
@@ -57,10 +57,10 @@ public extension Path {
     }
 
     public subscript(name: String) -> Path {
-        return Path(fromString: rawValue.stringByAppendingPathComponent(name))
+        return Path(rawValue.stringByAppendingPathComponent(name))
     }
 
     public subscript(path: Path) -> Path {
-        return Path(fromString: rawValue.stringByAppendingPathComponent(path.rawValue))
+        return Path(rawValue.stringByAppendingPathComponent(path.rawValue))
     }
 }

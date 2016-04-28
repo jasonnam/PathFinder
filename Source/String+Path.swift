@@ -57,6 +57,6 @@ public extension String {
 
 public extension NSURL {
     public var toPath: Path {
-        return Path(fromString: self.path ?? "")
+        return Path(self.path ?? "")
     }
 }

@@ -30,13 +30,13 @@ public class Path {
 
     var rawValue: String = ""
 
-    public convenience init(fromString: String) {
+    public convenience init(_ rawValue: String) {
         self.init()
-        rawValue = fromString
+        self.rawValue = rawValue
     }
 
     public convenience init(searchPathDirectory: NSSearchPathDirectory, domainMask: NSSearchPathDomainMask, expandTilde: Bool) {
-        self.init(fromString: NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0])
+        self.init(NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0])
     }
 
     public convenience init(searchPathDirectory: NSSearchPathDirectory) {
@@ -44,7 +44,7 @@ public class Path {
     }
 
     public static var emptyPath: Path {
-        return Path(fromString: "")
+        return Path("")
     }
 
     public var customAttributes: [String: Any] = [:]
@@ -52,7 +52,7 @@ public class Path {
     #if os(iOS)
 
     public static var homeDirectory: Path {
-        return Path(fromString: NSHomeDirectory())
+        return Path(NSHomeDirectory())
     }
 
     public static var documentsDirectory: Path {
@@ -68,7 +68,7 @@ public class Path {
     }
 
     public static var temporaryDirectory: Path {
-        return Path(fromString: NSTemporaryDirectory())
+        return Path(NSTemporaryDirectory())
     }
 
     #endif
@@ -86,7 +86,7 @@ public class Path {
     }
 
     public var parent: Path {
-        return Path(fromString: rawValue.stringByDeletingLastPathComponent)
+        return Path(rawValue.stringByDeletingLastPathComponent)
     }
 
     public var data: NSData? {
