@@ -64,3 +64,11 @@ public extension Path {
         return Path(rawValue.stringByAppendingPathComponent(path.rawValue))
     }
 }
+
+public func +(left: Path, right: Path) -> Path {
+    return left[right]
+}
+
+public func +(left: Path, right: String) -> Path {
+    return left[right]
+}
