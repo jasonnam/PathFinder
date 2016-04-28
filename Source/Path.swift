@@ -28,7 +28,7 @@ import Foundation
 public class Path {
     let fileManager = NSFileManager.defaultManager()
 
-    var rawValue: String = ""
+    public var rawValue: String = ""
 
     public init() {
         rawValue = ""
