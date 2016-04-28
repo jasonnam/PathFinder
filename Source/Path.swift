@@ -30,6 +30,10 @@ public class Path {
 
     var rawValue: String = ""
 
+    public init() {
+        rawValue = ""
+    }
+
     public convenience init(_ rawValue: String) {
         self.init()
         self.rawValue = rawValue
@@ -41,10 +45,6 @@ public class Path {
 
     public convenience init(searchPathDirectory: NSSearchPathDirectory) {
         self.init(searchPathDirectory: searchPathDirectory, domainMask: .UserDomainMask, expandTilde: true)
-    }
-
-    public static var emptyPath: Path {
-        return Path("")
     }
 
     public var customAttributes: [String: Any] = [:]
