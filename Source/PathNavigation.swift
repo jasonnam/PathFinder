@@ -35,7 +35,7 @@ public extension Path {
             var folder: [Path] = []
             var file: [Path] = []
 
-            for content in contents {
+            contents.forEach { content in
                 let contentPath = Path(rawValue.stringByAppendingPathComponent(content))
 
                 if !(exclude != nil && exclude!.contains(content)) {
@@ -51,6 +51,20 @@ public extension Path {
             file.sortInPlace { $0.name < $1.name }
 
             return folder + file
+        } catch {
+            throw error
+        }
+    }
+
+    public func enumerate(includeSubDirectory: Bool, block: (Path -> Void)) throws {
+        do {
+            try contents(exclude: nil).forEach { content in
+                if content.isDirectory && includeSubDirectory {
+                    try content.enumerate(true, block: block)
+                } else {
+                    block(content)
+                }
+            }
         } catch {
             throw error
         }
