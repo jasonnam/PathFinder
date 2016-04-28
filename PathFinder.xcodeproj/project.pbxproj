@@ -44,10 +44,10 @@
 			children = (
 				ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */,
 				EC8534651C3A547C004E2EEA /* Path.swift */,
-				EC8534661C3A547C004E2EEA /* PathAction.swift */,
 				EC8534671C3A547C004E2EEA /* PathAttribute.swift */,
-				EC8534681C3A547C004E2EEA /* PathError.swift */,
+				EC8534661C3A547C004E2EEA /* PathAction.swift */,
 				EC85346A1C3A547C004E2EEA /* PathNavigation.swift */,
+				EC8534681C3A547C004E2EEA /* PathError.swift */,
 				EC85346B1C3A547C004E2EEA /* String+Path.swift */,
 				EC85345F1C3A521D004E2EEA /* Info.plist */,
 				EC85345B1C3A521C004E2EEA /* Products */,
