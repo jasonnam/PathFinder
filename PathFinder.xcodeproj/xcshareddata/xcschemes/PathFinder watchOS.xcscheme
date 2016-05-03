@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC3DFA8C1CD1FBB700961BE0"
-               BuildableName = "PathFinder watchOS.framework"
+               BuildableName = "PathFinder.framework"
                BlueprintName = "PathFinder watchOS"
                ReferencedContainer = "container:PathFinder.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC3DFA8C1CD1FBB700961BE0"
-            BuildableName = "PathFinder watchOS.framework"
+            BuildableName = "PathFinder.framework"
             BlueprintName = "PathFinder watchOS"
             ReferencedContainer = "container:PathFinder.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC3DFA8C1CD1FBB700961BE0"
-            BuildableName = "PathFinder watchOS.framework"
+            BuildableName = "PathFinder.framework"
             BlueprintName = "PathFinder watchOS"
             ReferencedContainer = "container:PathFinder.xcodeproj">
          </BuildableReference>
