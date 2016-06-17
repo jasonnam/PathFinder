@@ -46,6 +46,12 @@ public extension Path {
         }
     }
 
+    public func touch(name: String, contents: NSData?) throws {
+        if !fileManager.createFileAtPath(self[name].toString(), contents: contents, attributes: nil) {
+            throw PathError.CreateFileFail(path: self[name])
+        }
+    }
+
     public func remove() throws {
         do {
             try checkExists(self)
