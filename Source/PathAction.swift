@@ -94,4 +94,24 @@ public extension Path {
             throw error
         }
     }
+
+    public func nameUnique(name: String) throws -> Bool {
+        if !isDirectory {
+            throw PathError.IsNotDirectory(path: self)
+        }
+
+        var unique = true
+
+        do {
+            try enumerate(false) { path in
+                if name == path.name {
+                    unique = false
+                }
+            }
+        } catch {
+            return false
+        }
+
+        return unique
+    }
 }

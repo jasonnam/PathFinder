@@ -52,6 +52,8 @@ public enum PathError: ErrorType {
             return "Could not copy file from \"\(fromPath.toString())\" to \"\(toPath.toString())\""
         case let AttributesChangeFail(path):
             return "Could not change file attrubutes at \"\(path.toString())\""
+        case let IsNotDirectory(path):
+            return "Following path is not a directory: \"\(path.toString())\""
         }
     }
 
@@ -87,4 +89,7 @@ public enum PathError: ErrorType {
 
     /// One or many attributes could not be changed.
     case AttributesChangeFail(path: Path)
+
+    /// Following path is not a directory.
+    case IsNotDirectory(path: Path)
 }
