@@ -103,7 +103,7 @@ public extension Path {
         var unique = true
 
         do {
-            try enumerate(false) { path in
+            try enumerate(false, exclude: nil) { path in
                 if name == path.name {
                     unique = false
                 }

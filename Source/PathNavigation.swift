@@ -56,12 +56,12 @@ public extension Path {
         }
     }
 
-    public func enumerate(includeSubDirectory: Bool, block: (Path -> Void)) throws {
+    public func enumerate(includeSubDirectory: Bool, exclude: [String]?, block: (Path -> Void)) throws {
         do {
-            try contents(exclude: nil).forEach { content in
+            try contents(exclude: exclude).forEach { content in
                 block(content)
                 if content.isDirectory && includeSubDirectory {
-                    try content.enumerate(true, block: block)
+                    try content.enumerate(true, exclude: nil, block: block)
                 }
             }
         } catch {
