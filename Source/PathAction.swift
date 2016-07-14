@@ -95,16 +95,19 @@ public extension Path {
         }
     }
 
-    public func nameUnique(name: String) throws -> Bool {
+    public func nameUnique(name: String, caseSensitive: Bool) throws -> Bool {
         if !isDirectory {
             throw PathError.IsNotDirectory(path: self)
         }
 
         var unique = true
 
+        let nameToCompare = caseSensitive ? name : name.lowercaseString
+
         do {
             try enumerate(false, exclude: nil) { path in
-                if name == path.name {
+                let pathName = caseSensitive ? path.name : path.name.lowercaseString
+                if nameToCompare == pathName {
                     unique = false
                 }
             }
