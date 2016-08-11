@@ -47,7 +47,7 @@ public extension Path {
     }
 
     public var attributes: [String : AnyObject] {
-        return (try? fileManager.attributesOfFileSystemForPath(rawValue)) ?? [:]
+        return (try? fileManager.attributesOfItemAtPath(rawValue)) ?? [:]
     }
 
     public var appendOnly: Bool? {
