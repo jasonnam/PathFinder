@@ -34,12 +34,22 @@ public extension Path {
         }
     }
 
+    public func newDirectoryWithIntermediateDirectories(subPath: String) throws -> Path? {
+        do {
+            let newPath = rawValue.stringByAppendingPathComponent(subPath)
+            try fileManager.createDirectoryAtPath(newPath, withIntermediateDirectories: true, attributes: nil)
+            return Path(newPath)
+        } catch {
+            throw error
+        }
+    }
+
     public func newDirectory(subPath: String) throws -> Path? {
         do {
             try checkExists(self)
 
             let newPath = rawValue.stringByAppendingPathComponent(subPath)
-            try fileManager.createDirectoryAtPath(newPath, withIntermediateDirectories: true, attributes: nil)
+            try fileManager.createDirectoryAtPath(newPath, withIntermediateDirectories: false, attributes: nil)
             return Path(newPath)
         } catch {
             throw error
