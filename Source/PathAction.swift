@@ -97,7 +97,6 @@ public extension Path {
     public func moveTo(path: Path) throws {
         do {
             try checkExists(self)
-            try checkExists(path)
 
             try fileManager.moveItemAtPath(rawValue, toPath: path.toString())
         } catch {
