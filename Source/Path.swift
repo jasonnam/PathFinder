@@ -27,11 +27,19 @@
 
 import Foundation
 
-public class Path {
-    let fileManager = NSFileManager.defaultManager()
+public func +(left: Path, right: Path) -> Path {
+    return left[right]
+}
 
-    public var rawValue: String = ""
-    public var customAttributes: [String: Any] = [:]
+public func +(left: Path, right: String) -> Path {
+    return left[right]
+}
+
+open class Path {
+    private let fileManager = FileManager.default
+
+    open var rawValue: String = ""
+    open var customAttributes: [String: Any] = [:]
 
     public init() {
         rawValue = ""
@@ -42,195 +50,388 @@ public class Path {
         self.rawValue = rawValue
     }
 
-    public convenience init(searchPathDirectory: NSSearchPathDirectory, domainMask: NSSearchPathDomainMask, expandTilde: Bool) {
+    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask, expandTilde: Bool) {
         self.init(NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0])
     }
 
-    public convenience init(searchPathDirectory: NSSearchPathDirectory, domainMask: NSSearchPathDomainMask) {
+    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask) {
         self.init(searchPathDirectory: searchPathDirectory, domainMask: domainMask, expandTilde: true)
     }
 
-    public convenience init(searchPathDirectory: NSSearchPathDirectory) {
-        self.init(searchPathDirectory: searchPathDirectory, domainMask: .UserDomainMask, expandTilde: true)
+    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory) {
+        self.init(searchPathDirectory: searchPathDirectory, domainMask: .userDomainMask, expandTilde: true)
     }
-}
 
-public extension Path {
-    public func toString() -> String {
+    open var pathAsString: String {
         return rawValue
     }
 
-    public func toURL() -> NSURL {
-        return NSURL(fileURLWithPath: rawValue)
+    open var pathAsURL: URL {
+        return URL(fileURLWithPath: rawValue)
     }
 
-    public var name: String {
+    open var name: String {
         return rawValue.lastPathComponent
     }
 
-    public var parent: Path {
+    open var exists: Bool {
+        return fileManager.fileExists(atPath: rawValue)
+    }
+
+    open var isDirectory: Bool {
+        var isDir: ObjCBool = false
+        fileManager.fileExists(atPath: rawValue, isDirectory: &isDir)
+        return isDir.boolValue
+    }
+
+    open var fileExtension: String {
+        return rawValue.lastPathComponent.pathExtension
+    }
+
+    open var parent: Path {
         return Path(rawValue.stringByDeletingLastPathComponent)
     }
 
-    public var data: NSData? {
-        return fileManager.contentsAtPath(rawValue)
+    open var data: Data? {
+        return fileManager.contents(atPath: rawValue)
     }
 
-    public var dataAsString: String {
-        do {
-            return try NSString(contentsOfFile: rawValue, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {
-            return ""
-        }
+    open var dataAsString: String {
+        return (try? NSString(contentsOfFile: rawValue, encoding: String.Encoding.utf8.rawValue) as String) ?? ""
     }
-}
 
-public extension Path {
     /// Returns the path to the user's or application's home directory,
     /// depending on the platform.
-    public static var UserHome: Path {
+    open static var UserHome: Path {
         return Path(NSHomeDirectory())
     }
 
     /// Returns the path to the user's temporary directory.
-    public static var UserTemporary: Path {
+    open static var UserTemporary: Path {
         return Path(NSTemporaryDirectory())
     }
 
     /// Returns a temporary path for the process.
-    public static var ProcessTemporary: Path {
-        return Path.UserTemporary + NSProcessInfo.processInfo().globallyUniqueString
+    open static var ProcessTemporary: Path {
+        return Path.UserTemporary + ProcessInfo.processInfo.globallyUniqueString
     }
 
     /// Returns a unique temporary path.
-    public static var UniqueTemporary: Path {
-        return Path.ProcessTemporary + NSUUID().UUIDString
+    open static var UniqueTemporary: Path {
+        return Path.ProcessTemporary + UUID().uuidString
     }
 
     /// Returns the path to the user's caches directory.
-    public static var UserCaches: Path {
-        return pathInUserDomain(.CachesDirectory)
+    open static var UserCaches: Path {
+        return pathInUserDomain(.cachesDirectory)
     }
 
     /// Returns the path to the user's applications directory.
-    public static var UserApplications: Path {
-        return pathInUserDomain(.ApplicationDirectory)
+    open static var UserApplications: Path {
+        return pathInUserDomain(.applicationDirectory)
     }
 
     /// Returns the path to the user's application support directory.
-    public static var UserApplicationSupport: Path {
-        return pathInUserDomain(.ApplicationSupportDirectory)
+    open static var UserApplicationSupport: Path {
+        return pathInUserDomain(.applicationSupportDirectory)
     }
 
     /// Returns the path to the user's desktop directory.
-    public static var UserDesktop: Path {
-        return pathInUserDomain(.DesktopDirectory)
+    open static var UserDesktop: Path {
+        return pathInUserDomain(.desktopDirectory)
     }
 
     /// Returns the path to the user's documents directory.
-    public static var UserDocuments: Path {
-        return pathInUserDomain(.DocumentDirectory)
+    open static var UserDocuments: Path {
+        return pathInUserDomain(.documentDirectory)
     }
 
     /// Returns the path to the user's autosaved documents directory.
-    public static var UserAutosavedInformation: Path {
-        return pathInUserDomain(.AutosavedInformationDirectory)
+    open static var UserAutosavedInformation: Path {
+        return pathInUserDomain(.autosavedInformationDirectory)
     }
 
     /// Returns the path to the user's downloads directory.
-    public static var UserDownloads: Path {
-        return pathInUserDomain(.DownloadsDirectory)
+    open static var UserDownloads: Path {
+        return pathInUserDomain(.downloadsDirectory)
     }
 
     /// Returns the path to the user's library directory.
-    public static var UserLibrary: Path {
-        return pathInUserDomain(.LibraryDirectory)
+    open static var UserLibrary: Path {
+        return pathInUserDomain(.libraryDirectory)
     }
 
     /// Returns the path to the user's movies directory.
-    public static var UserMovies: Path {
-        return pathInUserDomain(.MoviesDirectory)
+    open static var UserMovies: Path {
+        return pathInUserDomain(.moviesDirectory)
     }
 
     /// Returns the path to the user's music directory.
-    public static var UserMusic: Path {
-        return pathInUserDomain(.MusicDirectory)
+    open static var UserMusic: Path {
+        return pathInUserDomain(.musicDirectory)
     }
 
     /// Returns the path to the user's pictures directory.
-    public static var UserPictures: Path {
-        return pathInUserDomain(.PicturesDirectory)
+    open static var UserPictures: Path {
+        return pathInUserDomain(.picturesDirectory)
     }
 
     /// Returns the path to the user's Public sharing directory.
-    public static var UserSharedPublic: Path {
-        return pathInUserDomain(.SharedPublicDirectory)
+    open static var UserSharedPublic: Path {
+        return pathInUserDomain(.sharedPublicDirectory)
     }
 
     #if os(OSX)
 
     /// Returns the path to the user scripts folder for the calling application
-    public static var UserApplicationScripts: Path {
-        return pathInUserDomain(.ApplicationScriptsDirectory)
+    open static var UserApplicationScripts: Path {
+        return pathInUserDomain(.applicationScriptsDirectory)
     }
 
     /// Returns the path to the user's trash directory
-    public static var UserTrash: Path {
-        return pathInUserDomain(.TrashDirectory)
+    open static var UserTrash: Path {
+        return pathInUserDomain(.trashDirectory)
     }
 
     #endif
 
     /// Returns the path to the system's applications directory.
-    public static var SystemApplications: Path {
-        return pathInSystemDomain(.ApplicationDirectory)
+    open static var SystemApplications: Path {
+        return pathInSystemDomain(.applicationDirectory)
     }
 
     /// Returns the path to the system's application support directory.
-    public static var SystemApplicationSupport: Path {
-        return pathInSystemDomain(.ApplicationSupportDirectory)
+    open static var SystemApplicationSupport: Path {
+        return pathInSystemDomain(.applicationSupportDirectory)
     }
 
     /// Returns the path to the system's library directory.
-    public static var SystemLibrary: Path {
-        return pathInSystemDomain(.LibraryDirectory)
+    open static var SystemLibrary: Path {
+        return pathInSystemDomain(.libraryDirectory)
     }
 
     /// Returns the path to the system's core services directory.
-    public static var SystemCoreServices: Path {
-        return pathInSystemDomain(.CoreServiceDirectory)
+    open static var SystemCoreServices: Path {
+        return pathInSystemDomain(.coreServiceDirectory)
     }
 
     /// Returns the path to the system's PPDs directory.
-    public static var SystemPrinterDescription: Path {
-        return pathInSystemDomain(.PrinterDescriptionDirectory)
+    open static var SystemPrinterDescription: Path {
+        return pathInSystemDomain(.printerDescriptionDirectory)
     }
 
     /// Returns the path to the system's PreferencePanes directory.
-    public static var SystemPreferencePanes: Path {
-        return pathInSystemDomain(.PreferencePanesDirectory)
+    open static var SystemPreferencePanes: Path {
+        return pathInSystemDomain(.preferencePanesDirectory)
     }
 
     /// Returns the paths where resources can occur.
-    public static var AllLibraries: [Path] {
-        return pathsInDomains(.AllLibrariesDirectory, domainMask: .AllDomainsMask)
+    open static var AllLibraries: [Path] {
+        return pathsInDomains(.allLibrariesDirectory, domainMask: .allDomainsMask)
     }
 
     /// Returns the paths where applications can occur
-    public static var AllApplications: [Path] {
-        return pathsInDomains(.AllApplicationsDirectory, domainMask: .AllDomainsMask)
+    open static var AllApplications: [Path] {
+        return pathsInDomains(.allApplicationsDirectory, domainMask: .allDomainsMask)
     }
 
-    private static func pathInUserDomain(searchPathDirectory: NSSearchPathDirectory) -> Path {
-        return Path(searchPathDirectory: searchPathDirectory, domainMask: .UserDomainMask)
+    open static func pathInUserDomain(_ searchPathDirectory: FileManager.SearchPathDirectory) -> Path {
+        return Path(searchPathDirectory: searchPathDirectory, domainMask: .userDomainMask)
     }
 
-    private static func pathInSystemDomain(searchPathDirectory: NSSearchPathDirectory) -> Path {
-        return Path(searchPathDirectory: searchPathDirectory, domainMask: .SystemDomainMask)
+    open static func pathInSystemDomain(_ searchPathDirectory: FileManager.SearchPathDirectory) -> Path {
+        return Path(searchPathDirectory: searchPathDirectory, domainMask: .systemDomainMask)
     }
 
-    private static func pathsInDomains(searchPathDirectory: NSSearchPathDirectory, domainMask: NSSearchPathDomainMask) -> [Path] {
+    open static func pathsInDomains(_ searchPathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask) -> [Path] {
         return NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, true).map({ Path($0) })
+    }
+
+    open var attributes: [FileAttributeKey : Any] {
+        return (try? fileManager.attributesOfItem(atPath: rawValue)) ?? [:]
+    }
+
+    open var appendOnly: Bool? {
+        return (attributes[FileAttributeKey.appendOnly] as? NSNumber)?.boolValue
+    }
+
+    open var busy: Bool? {
+        return (attributes[FileAttributeKey.busy] as? NSNumber)?.boolValue
+    }
+
+    open var creationDate: Date? {
+        return attributes[FileAttributeKey.creationDate] as? Date
+    }
+
+    open var ownerAccountName: String? {
+        return attributes[FileAttributeKey.ownerAccountID] as? String
+    }
+
+    open var groupOwnerAccountName: String? {
+        return attributes[FileAttributeKey.groupOwnerAccountName] as? String
+    }
+
+    open var deviceIdentifier: UInt? {
+        return (attributes[FileAttributeKey.deviceIdentifier] as? NSNumber)?.uintValue
+    }
+
+    open var extensionHidden: Bool? {
+        return (attributes[FileAttributeKey.extensionHidden] as? NSNumber)?.boolValue
+    }
+
+    open var groupOwnerAccountID: UInt? {
+        return (attributes[FileAttributeKey.groupOwnerAccountID] as? NSNumber)?.uintValue
+    }
+
+    open var HFSCreatorCode: UInt? {
+        return (attributes[FileAttributeKey.hfsCreatorCode] as? NSNumber)?.uintValue
+    }
+
+    open var immutable: Bool? {
+        return (attributes[FileAttributeKey.immutable] as? NSNumber)?.boolValue
+    }
+
+    open var modificationDate: Date? {
+        return attributes[FileAttributeKey.modificationDate] as? Date
+    }
+
+    open var ownerAccountID: UInt? {
+        return (attributes[FileAttributeKey.ownerAccountID] as? NSNumber)?.uintValue
+    }
+
+    open var posixPermissions: Int16? {
+        return (attributes[FileAttributeKey.posixPermissions] as? NSNumber)?.int16Value
+    }
+
+    open var referenceCount: UInt? {
+        return (attributes[FileAttributeKey.referenceCount] as? NSNumber)?.uintValue
+    }
+
+    open var size: UInt64? {
+        return (attributes[FileAttributeKey.size] as? NSNumber)?.uint64Value
+    }
+
+    open func newDirectory(subPath: String, withIntermediateDirectories intermediateDirectories: Bool = false, attributes: [String: Any]? = nil) throws {
+        do {
+            let newPath = rawValue.stringByAppendingPathComponent(subPath)
+            try fileManager.createDirectory(atPath: newPath, withIntermediateDirectories: intermediateDirectories, attributes: attributes)
+        } catch {
+            throw error
+        }
+    }
+
+    open func touch(name: String, contents: Data?, attributes: [String: Any]?) throws {
+        if !fileManager.createFile(atPath: self[name].pathAsString, contents: contents, attributes: attributes) {
+            throw PathError.createFileFail(path: self[name])
+        }
+    }
+
+    open func remove() throws {
+        do {
+            try fileManager.removeItem(atPath: rawValue)
+        } catch {
+            throw error
+        }
+    }
+
+    open func rename(to name: String) throws {
+        do {
+            let newPath = rawValue.stringByDeletingLastPathComponent.stringByAppendingPathComponent(name)
+            try fileManager.moveItem(atPath: rawValue, toPath: newPath)
+        } catch {
+            throw error
+        }
+    }
+
+    open func copyTo(path: Path) throws {
+        do {
+            try fileManager.copyItem(atPath: rawValue, toPath: path.pathAsString)
+        } catch {
+            throw error
+        }
+    }
+
+    open func moveTo(path: Path) throws {
+        do {
+            try fileManager.moveItem(atPath: rawValue, toPath: path.pathAsString)
+        } catch {
+            throw error
+        }
+    }
+
+    open func nameUnique(nameToCompare: String, caseSensitive: Bool) throws -> Bool {
+        if !isDirectory {
+            throw PathError.isNotDirectory(path: self)
+        }
+
+        var unique = true
+
+        let nameToCompare = caseSensitive ? name : name.lowercased()
+
+        do {
+            try enumerate { path in
+                let pathName = caseSensitive ? path.name : path.name.lowercased()
+                if nameToCompare == pathName {
+                    unique = false
+                }
+            }
+        } catch {
+            return false
+        }
+        
+        return unique
+    }
+
+    open func contents(exclude: [String]?) throws -> [Path] {
+        guard exists else {
+            return []
+        }
+
+        do {
+            let contents = try fileManager.contentsOfDirectory(atPath: rawValue)
+
+            var folder: [Path] = []
+            var file: [Path] = []
+
+            contents.forEach { content in
+                let contentPath = Path(rawValue.stringByAppendingPathComponent(content))
+
+                if !(exclude != nil && exclude!.contains(content)) {
+                    if contentPath.isDirectory {
+                        folder.append(contentPath)
+                    } else {
+                        file.append(contentPath)
+                    }
+                }
+            }
+
+            folder.sort { $0.name < $1.name }
+            file.sort { $0.name < $1.name }
+
+            return folder + file
+        } catch {
+            throw error
+        }
+    }
+
+    open func enumerate(includeSubDirectory: Bool = false, exclude: [String]? = nil, block: ((Path) -> Void)) throws {
+        do {
+            try contents(exclude: exclude).forEach { content in
+                block(content)
+                if content.isDirectory && includeSubDirectory {
+                    try content.enumerate(includeSubDirectory: true, block: block)
+                }
+            }
+        } catch {
+            throw error
+        }
+    }
+
+    open subscript(name: String) -> Path {
+        return Path(rawValue.stringByAppendingPathComponent(name))
+    }
+
+    open subscript(path: Path) -> Path {
+        return Path(rawValue.stringByAppendingPathComponent(path.rawValue))
     }
 }
