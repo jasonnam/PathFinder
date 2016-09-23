@@ -62,11 +62,11 @@ open class Path {
         self.init(searchPathDirectory: searchPathDirectory, domainMask: .userDomainMask, expandTilde: true)
     }
 
-    open var pathAsString: String {
+    open var asString: String {
         return rawValue
     }
 
-    open var pathAsURL: URL {
+    open var asURL: URL {
         return URL(fileURLWithPath: rawValue)
     }
 
@@ -102,136 +102,136 @@ open class Path {
 
     /// Returns the path to the user's or application's home directory,
     /// depending on the platform.
-    open static var UserHome: Path {
+    open static var userHome: Path {
         return Path(NSHomeDirectory())
     }
 
     /// Returns the path to the user's temporary directory.
-    open static var UserTemporary: Path {
+    open static var userTemporary: Path {
         return Path(NSTemporaryDirectory())
     }
 
     /// Returns a temporary path for the process.
-    open static var ProcessTemporary: Path {
-        return Path.UserTemporary + ProcessInfo.processInfo.globallyUniqueString
+    open static var processTemporary: Path {
+        return Path.userTemporary + ProcessInfo.processInfo.globallyUniqueString
     }
 
     /// Returns a unique temporary path.
-    open static var UniqueTemporary: Path {
-        return Path.ProcessTemporary + UUID().uuidString
+    open static var uniqueTemporary: Path {
+        return Path.processTemporary + UUID().uuidString
     }
 
     /// Returns the path to the user's caches directory.
-    open static var UserCaches: Path {
+    open static var userCaches: Path {
         return pathInUserDomain(.cachesDirectory)
     }
 
     /// Returns the path to the user's applications directory.
-    open static var UserApplications: Path {
+    open static var userApplications: Path {
         return pathInUserDomain(.applicationDirectory)
     }
 
     /// Returns the path to the user's application support directory.
-    open static var UserApplicationSupport: Path {
+    open static var userApplicationSupport: Path {
         return pathInUserDomain(.applicationSupportDirectory)
     }
 
     /// Returns the path to the user's desktop directory.
-    open static var UserDesktop: Path {
+    open static var userDesktop: Path {
         return pathInUserDomain(.desktopDirectory)
     }
 
     /// Returns the path to the user's documents directory.
-    open static var UserDocuments: Path {
+    open static var userDocuments: Path {
         return pathInUserDomain(.documentDirectory)
     }
 
     /// Returns the path to the user's autosaved documents directory.
-    open static var UserAutosavedInformation: Path {
+    open static var userAutosavedInformation: Path {
         return pathInUserDomain(.autosavedInformationDirectory)
     }
 
     /// Returns the path to the user's downloads directory.
-    open static var UserDownloads: Path {
+    open static var userDownloads: Path {
         return pathInUserDomain(.downloadsDirectory)
     }
 
     /// Returns the path to the user's library directory.
-    open static var UserLibrary: Path {
+    open static var userLibrary: Path {
         return pathInUserDomain(.libraryDirectory)
     }
 
     /// Returns the path to the user's movies directory.
-    open static var UserMovies: Path {
+    open static var userMovies: Path {
         return pathInUserDomain(.moviesDirectory)
     }
 
     /// Returns the path to the user's music directory.
-    open static var UserMusic: Path {
+    open static var userMusic: Path {
         return pathInUserDomain(.musicDirectory)
     }
 
     /// Returns the path to the user's pictures directory.
-    open static var UserPictures: Path {
+    open static var userPictures: Path {
         return pathInUserDomain(.picturesDirectory)
     }
 
     /// Returns the path to the user's Public sharing directory.
-    open static var UserSharedPublic: Path {
+    open static var userSharedPublic: Path {
         return pathInUserDomain(.sharedPublicDirectory)
     }
 
     #if os(OSX)
 
     /// Returns the path to the user scripts folder for the calling application
-    open static var UserApplicationScripts: Path {
+    open static var userApplicationScripts: Path {
         return pathInUserDomain(.applicationScriptsDirectory)
     }
 
     /// Returns the path to the user's trash directory
-    open static var UserTrash: Path {
+    open static var userTrash: Path {
         return pathInUserDomain(.trashDirectory)
     }
 
     #endif
 
     /// Returns the path to the system's applications directory.
-    open static var SystemApplications: Path {
+    open static var systemApplications: Path {
         return pathInSystemDomain(.applicationDirectory)
     }
 
     /// Returns the path to the system's application support directory.
-    open static var SystemApplicationSupport: Path {
+    open static var systemApplicationSupport: Path {
         return pathInSystemDomain(.applicationSupportDirectory)
     }
 
     /// Returns the path to the system's library directory.
-    open static var SystemLibrary: Path {
+    open static var systemLibrary: Path {
         return pathInSystemDomain(.libraryDirectory)
     }
 
     /// Returns the path to the system's core services directory.
-    open static var SystemCoreServices: Path {
+    open static var systemCoreServices: Path {
         return pathInSystemDomain(.coreServiceDirectory)
     }
 
     /// Returns the path to the system's PPDs directory.
-    open static var SystemPrinterDescription: Path {
+    open static var systemPrinterDescription: Path {
         return pathInSystemDomain(.printerDescriptionDirectory)
     }
 
     /// Returns the path to the system's PreferencePanes directory.
-    open static var SystemPreferencePanes: Path {
+    open static var systemPreferencePanes: Path {
         return pathInSystemDomain(.preferencePanesDirectory)
     }
 
     /// Returns the paths where resources can occur.
-    open static var AllLibraries: [Path] {
+    open static var allLibraries: [Path] {
         return pathsInDomains(.allLibrariesDirectory, domainMask: .allDomainsMask)
     }
 
     /// Returns the paths where applications can occur
-    open static var AllApplications: [Path] {
+    open static var allApplications: [Path] {
         return pathsInDomains(.allApplicationsDirectory, domainMask: .allDomainsMask)
     }
 
@@ -311,17 +311,17 @@ open class Path {
         return (attributes[FileAttributeKey.size] as? NSNumber)?.uint64Value
     }
 
-    open func newDirectory(subPath: String, withIntermediateDirectories intermediateDirectories: Bool = false, attributes: [String: Any]? = nil) throws {
+    open func newDirectory(at subPath: String, withIntermediateDirectories intermediateDirectories: Bool = false, with attributes: [String: Any]? = nil) throws {
         do {
-            let newPath = rawValue.stringByAppendingPathComponent(subPath)
+            let newPath = rawValue.stringByAppending(pathComponent: subPath)
             try fileManager.createDirectory(atPath: newPath, withIntermediateDirectories: intermediateDirectories, attributes: attributes)
         } catch {
             throw error
         }
     }
 
-    open func touch(name: String, contents: Data?, attributes: [String: Any]?) throws {
-        if !fileManager.createFile(atPath: self[name].pathAsString, contents: contents, attributes: attributes) {
+    open func touch(name: String, contents: Data?, attributes: [String: Any]? = nil) throws {
+        if !fileManager.createFile(atPath: self[name].asString, contents: contents, attributes: attributes) {
             throw PathError.createFileFail(path: self[name])
         }
     }
@@ -336,30 +336,30 @@ open class Path {
 
     open func rename(to name: String) throws {
         do {
-            let newPath = rawValue.stringByDeletingLastPathComponent.stringByAppendingPathComponent(name)
+            let newPath = rawValue.stringByDeletingLastPathComponent.stringByAppending(pathComponent: name)
             try fileManager.moveItem(atPath: rawValue, toPath: newPath)
         } catch {
             throw error
         }
     }
 
-    open func copyTo(path: Path) throws {
+    open func copy(to path: Path) throws {
         do {
-            try fileManager.copyItem(atPath: rawValue, toPath: path.pathAsString)
+            try fileManager.copyItem(atPath: rawValue, toPath: path.asString)
         } catch {
             throw error
         }
     }
 
-    open func moveTo(path: Path) throws {
+    open func move(to path: Path) throws {
         do {
-            try fileManager.moveItem(atPath: rawValue, toPath: path.pathAsString)
+            try fileManager.moveItem(atPath: rawValue, toPath: path.asString)
         } catch {
             throw error
         }
     }
 
-    open func nameUnique(nameToCompare: String, caseSensitive: Bool) throws -> Bool {
+    open func checkUnique(_ name: String, caseSensitive: Bool) throws -> Bool {
         if !isDirectory {
             throw PathError.isNotDirectory(path: self)
         }
@@ -382,7 +382,7 @@ open class Path {
         return unique
     }
 
-    open func contents(exclude: [String]?) throws -> [Path] {
+    open func contents(exclude: [String]? = nil) throws -> [Path] {
         guard exists else {
             return []
         }
@@ -394,7 +394,7 @@ open class Path {
             var file: [Path] = []
 
             contents.forEach { content in
-                let contentPath = Path(rawValue.stringByAppendingPathComponent(content))
+                let contentPath = Path(rawValue.stringByAppending(pathComponent: content))
 
                 if !(exclude != nil && exclude!.contains(content)) {
                     if contentPath.isDirectory {
@@ -428,10 +428,10 @@ open class Path {
     }
 
     open subscript(name: String) -> Path {
-        return Path(rawValue.stringByAppendingPathComponent(name))
+        return Path(rawValue.stringByAppending(pathComponent: name))
     }
 
     open subscript(path: Path) -> Path {
-        return Path(rawValue.stringByAppendingPathComponent(path.rawValue))
+        return Path(rawValue.stringByAppending(pathComponent: path.rawValue))
     }
 }

@@ -31,29 +31,29 @@ public enum PathError: Error {
     public var message: String {
         switch self {
         case let .fileDoesNotExist(path):
-            return "File does not exist at \"\(path.pathAsString)\""
+            return "File does not exist at \"\(path.asString)\""
         case let .changeDirectoryFail(fromPath, toPath):
-            return "Could not change the directory from \"\(fromPath.pathAsString)\" to \"\(toPath.pathAsString)\""
+            return "Could not change the directory from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
         case let .createSymlinkFail(fromPath, toPath):
-            return "Could not create symlink from \"\(fromPath.pathAsString)\" to \"\(toPath.pathAsString)\""
+            return "Could not create symlink from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
         case let .createFileFail(path):
-            return "Could not create file at \"\(path.pathAsString)\""
+            return "Could not create file at \"\(path.asString)\""
         case let .createDirectoryFail(path):
-            return "Could not create a directory at \"\(path.pathAsString)\""
+            return "Could not create a directory at \"\(path.asString)\""
         case let .deleteFileFail(path):
-            return "Could not delete file at \"\(path.pathAsString)\""
+            return "Could not delete file at \"\(path.asString)\""
         case let .readFromFileFail(path):
-            return "Could not read from file at \"\(path.pathAsString)\""
+            return "Could not read from file at \"\(path.asString)\""
         case let .writeToFileFail(path):
-            return "Could not write to file at \"\(path.pathAsString)\""
+            return "Could not write to file at \"\(path.asString)\""
         case let .moveFileFail(fromPath, toPath):
-            return "Could not move file at \"\(fromPath.pathAsString)\" to \"\(toPath.pathAsString)\""
+            return "Could not move file at \"\(fromPath.asString)\" to \"\(toPath.asString)\""
         case let .copyFileFail(fromPath, toPath):
-            return "Could not copy file from \"\(fromPath.pathAsString)\" to \"\(toPath.pathAsString)\""
+            return "Could not copy file from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
         case let .attributesChangeFail(path):
-            return "Could not change file attrubutes at \"\(path.pathAsString)\""
+            return "Could not change file attrubutes at \"\(path.asString)\""
         case let .isNotDirectory(path):
-            return "Following path is not a directory: \"\(path.pathAsString)\""
+            return "Following path is not a directory: \"\(path.asString)\""
         }
     }
 

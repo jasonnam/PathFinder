@@ -26,12 +26,12 @@
 import Foundation
 
 public extension String {
-    public func stringByAppendingPathComponent(_ path: String) -> String {
-        return (self as NSString).appendingPathComponent(path)
+    public func stringByAppending(pathComponent: String) -> String {
+        return (self as NSString).appendingPathComponent(pathComponent)
     }
 
-    public func stringByAppendingPathExtension(_ ext: String) -> String? {
-        return (self as NSString).appendingPathExtension(ext)
+    public func stringByAppending(pathExtension: String) -> String? {
+        return (self as NSString).appendingPathExtension(pathExtension)
     }
 
     public var lastPathComponent: String {

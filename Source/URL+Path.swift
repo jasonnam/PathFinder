@@ -26,7 +26,7 @@
 import Foundation
 
 public extension URL {
-    public var toPath: Path {
+    public func toPath() -> Path {
         return Path(self.path)
     }
 }
