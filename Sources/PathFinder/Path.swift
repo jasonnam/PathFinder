@@ -35,24 +35,45 @@ public func +(left: Path, right: String) -> Path {
     return left[right]
 }
 
+/// File path.
 open class Path {
 
+    /// Custom attributes
+    /// lasting for object life span.
     open var customAttributes: [String: Any] = [:]
 
+    /// Raw value.
     open private(set) var rawValue: String
 
+    // MARK: - Init
+
+    /// Init with empty value.
     public init() {
         rawValue = ""
     }
 
+    /// Init with string value.
+    ///
+    /// - Parameter string: Raw value.
     public init(string: String) {
         rawValue = string
     }
 
+    /// Init with URL.
+    ///
+    /// - Parameter url: Raw value.
     public init(url: URL) {
         rawValue = url.absoluteString
     }
 
+    /// Init with search path directory.
+    ///
+    /// - Parameters:
+    ///   - searchPathDirectory: Search path directory.
+    ///                          `FileManager.SearchPathDirectory`
+    ///   - domainMask: Search path domain mask.
+    ///                 `FileManager.SearchPathDomainMask`
+    ///   - expandTilde: Expand tilde.
     public init(searchPathDirectory: FileManager.SearchPathDirectory,
                 domainMask: FileManager.SearchPathDomainMask = .userDomainMask,
                 expandTilde: Bool = true) {
