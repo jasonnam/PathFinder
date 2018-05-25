@@ -1,5 +1,5 @@
 //
-// String+Path.swift
+// URL+Path.swift
 // PathFinder
 //
 // Copyright (c) 2016 Jason Nam (http://www.jasonnam.com)
@@ -25,32 +25,8 @@
 
 import Foundation
 
-public extension String {
-    public func stringByAppending(pathComponent: String) -> String {
-        return (self as NSString).appendingPathComponent(pathComponent)
-    }
-
-    public func stringByAppending(pathExtension: String) -> String? {
-        return (self as NSString).appendingPathExtension(pathExtension)
-    }
-
-    public var lastPathComponent: String {
-        return (self as NSString).lastPathComponent
-    }
-
-    public var pathExtension: String {
-        return (self as NSString).pathExtension
-    }
-
-    public var stringByDeletingLastPathComponent: String {
-        return (self as NSString).deletingLastPathComponent
-    }
-
-    public var stringByDeletingPathExtension: String {
-        return (self as NSString).deletingPathExtension
-    }
-
-    public var pathComponents: [String] {
-        return (self as NSString).pathComponents
+public extension URL {
+    public func toPath() -> Path {
+        return Path(self.path)
     }
 }

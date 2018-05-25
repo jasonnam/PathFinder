@@ -8,33 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		EC3DD8E81C8750FA005FFCE5 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
-		EC3DD8E91C8750FA005FFCE5 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
-		EC3DD8EA1C8750FA005FFCE5 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
 		EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
-		EC3DD8EC1C8750FA005FFCE5 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DD8ED1C8750FA005FFCE5 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
 		EC3DFA951CD1FBF100961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
-		EC3DFA961CD1FBF100961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
-		EC3DFA971CD1FBF100961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
-		EC3DFA981CD1FBF100961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DFA991CD1FBF100961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
 		EC3DFA9A1CD1FBF100961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
 		EC3DFA9B1CD1FBFA00961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3DFA9C1CD1FC4400961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
-		EC3DFA9D1CD1FC4400961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
-		EC3DFA9E1CD1FC4400961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
-		EC3DFA9F1CD1FC4400961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DFAA01CD1FC4400961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
 		EC3DFAA11CD1FC4400961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
 		EC3DFAA21CD1FC4600961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3DFAA31CD1FC5B00961BE0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534651C3A547C004E2EEA /* Path.swift */; };
-		EC3DFAA41CD1FC5B00961BE0 /* PathAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534671C3A547C004E2EEA /* PathAttribute.swift */; };
-		EC3DFAA51CD1FC5B00961BE0 /* PathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534661C3A547C004E2EEA /* PathAction.swift */; };
-		EC3DFAA61CD1FC5B00961BE0 /* PathNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346A1C3A547C004E2EEA /* PathNavigation.swift */; };
 		EC3DFAA71CD1FC5B00961BE0 /* PathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8534681C3A547C004E2EEA /* PathError.swift */; };
 		EC3DFAA81CD1FC5B00961BE0 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85346B1C3A547C004E2EEA /* String+Path.swift */; };
 		EC3DFAA91CD1FC5F00961BE0 /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECD5E09D1CBB9BE800D4A07A /* PathFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECE2413A1D8BF132000CCBFD /* URL+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE241391D8BF132000CCBFD /* URL+Path.swift */; };
+		ECE2413B1D8BF132000CCBFD /* URL+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE241391D8BF132000CCBFD /* URL+Path.swift */; };
+		ECE2413C1D8BF132000CCBFD /* URL+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE241391D8BF132000CCBFD /* URL+Path.swift */; };
+		ECE2413D1D8BF132000CCBFD /* URL+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE241391D8BF132000CCBFD /* URL+Path.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +36,10 @@
 		EC85345A1C3A521C004E2EEA /* PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC85345F1C3A521D004E2EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		EC8534651C3A547C004E2EEA /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Path.swift; path = Source/Path.swift; sourceTree = "<group>"; };
-		EC8534661C3A547C004E2EEA /* PathAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathAction.swift; path = Source/PathAction.swift; sourceTree = "<group>"; };
-		EC8534671C3A547C004E2EEA /* PathAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathAttribute.swift; path = Source/PathAttribute.swift; sourceTree = "<group>"; };
 		EC8534681C3A547C004E2EEA /* PathError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathError.swift; path = Source/PathError.swift; sourceTree = "<group>"; };
-		EC85346A1C3A547C004E2EEA /* PathNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathNavigation.swift; path = Source/PathNavigation.swift; sourceTree = "<group>"; };
 		EC85346B1C3A547C004E2EEA /* String+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Path.swift"; path = "Source/String+Path.swift"; sourceTree = "<group>"; };
 		ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PathFinder.h; path = Source/PathFinder.h; sourceTree = "<group>"; };
+		ECE241391D8BF132000CCBFD /* URL+Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+Path.swift"; path = "Source/URL+Path.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +79,9 @@
 			children = (
 				ECD5E09B1CBB9AF500D4A07A /* PathFinder.h */,
 				EC8534651C3A547C004E2EEA /* Path.swift */,
-				EC8534671C3A547C004E2EEA /* PathAttribute.swift */,
-				EC8534661C3A547C004E2EEA /* PathAction.swift */,
-				EC85346A1C3A547C004E2EEA /* PathNavigation.swift */,
 				EC8534681C3A547C004E2EEA /* PathError.swift */,
 				EC85346B1C3A547C004E2EEA /* String+Path.swift */,
+				ECE241391D8BF132000CCBFD /* URL+Path.swift */,
 				EC85345F1C3A521D004E2EEA /* Info.plist */,
 				EC85345B1C3A521C004E2EEA /* Products */,
 			);
@@ -226,20 +214,24 @@
 		EC8534511C3A521C004E2EEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Jason Nam";
 				TargetAttributes = {
 					EC3DFA721CD1FB5400961BE0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					EC3DFA7F1CD1FBA400961BE0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					EC3DFA8C1CD1FBB700961BE0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					EC8534591C3A521C004E2EEA = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -299,10 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE2413B1D8BF132000CCBFD /* URL+Path.swift in Sources */,
 				EC3DFA951CD1FBF100961BE0 /* Path.swift in Sources */,
-				EC3DFA961CD1FBF100961BE0 /* PathAttribute.swift in Sources */,
-				EC3DFA971CD1FBF100961BE0 /* PathAction.swift in Sources */,
-				EC3DFA981CD1FBF100961BE0 /* PathNavigation.swift in Sources */,
 				EC3DFA991CD1FBF100961BE0 /* PathError.swift in Sources */,
 				EC3DFA9A1CD1FBF100961BE0 /* String+Path.swift in Sources */,
 			);
@@ -312,10 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE2413C1D8BF132000CCBFD /* URL+Path.swift in Sources */,
 				EC3DFA9C1CD1FC4400961BE0 /* Path.swift in Sources */,
-				EC3DFA9D1CD1FC4400961BE0 /* PathAttribute.swift in Sources */,
-				EC3DFA9E1CD1FC4400961BE0 /* PathAction.swift in Sources */,
-				EC3DFA9F1CD1FC4400961BE0 /* PathNavigation.swift in Sources */,
 				EC3DFAA01CD1FC4400961BE0 /* PathError.swift in Sources */,
 				EC3DFAA11CD1FC4400961BE0 /* String+Path.swift in Sources */,
 			);
@@ -325,10 +313,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE2413D1D8BF132000CCBFD /* URL+Path.swift in Sources */,
 				EC3DFAA31CD1FC5B00961BE0 /* Path.swift in Sources */,
-				EC3DFAA41CD1FC5B00961BE0 /* PathAttribute.swift in Sources */,
-				EC3DFAA51CD1FC5B00961BE0 /* PathAction.swift in Sources */,
-				EC3DFAA61CD1FC5B00961BE0 /* PathNavigation.swift in Sources */,
 				EC3DFAA71CD1FC5B00961BE0 /* PathError.swift in Sources */,
 				EC3DFAA81CD1FC5B00961BE0 /* String+Path.swift in Sources */,
 			);
@@ -338,10 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE2413A1D8BF132000CCBFD /* URL+Path.swift in Sources */,
 				EC3DD8E81C8750FA005FFCE5 /* Path.swift in Sources */,
-				EC3DD8EA1C8750FA005FFCE5 /* PathAttribute.swift in Sources */,
-				EC3DD8E91C8750FA005FFCE5 /* PathAction.swift in Sources */,
-				EC3DD8EC1C8750FA005FFCE5 /* PathNavigation.swift in Sources */,
 				EC3DD8EB1C8750FA005FFCE5 /* PathError.swift in Sources */,
 				EC3DD8ED1C8750FA005FFCE5 /* String+Path.swift in Sources */,
 			);
@@ -354,7 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -368,6 +352,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -375,7 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -389,6 +374,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -396,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -407,6 +394,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -416,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -427,6 +416,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -437,6 +427,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -448,6 +439,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -458,6 +450,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -469,6 +462,7 @@
 				PRODUCT_NAME = PathFinder;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -487,8 +481,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -536,8 +532,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -558,6 +556,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -569,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -580,6 +580,7 @@
 				PRODUCT_NAME = PathFinder;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -587,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -597,6 +599,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonnam.PathFinder-iOS";
 				PRODUCT_NAME = PathFinder;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -610,6 +613,7 @@
 				EC3DFA7A1CD1FB5400961BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC3DFA851CD1FBA400961BE0 /* Build configuration list for PBXNativeTarget "PathFinder tvOS" */ = {
 			isa = XCConfigurationList;
@@ -618,6 +622,7 @@
 				EC3DFA871CD1FBA400961BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC3DFA921CD1FBB700961BE0 /* Build configuration list for PBXNativeTarget "PathFinder watchOS" */ = {
 			isa = XCConfigurationList;
@@ -626,6 +631,7 @@
 				EC3DFA941CD1FBB700961BE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC8534541C3A521C004E2EEA /* Build configuration list for PBXProject "PathFinder" */ = {
 			isa = XCConfigurationList;

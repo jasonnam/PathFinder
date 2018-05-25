@@ -27,64 +27,69 @@
 
 import Foundation
 
-public enum PathError: ErrorType {
+public enum PathError: Error {
     public var message: String {
         switch self {
-        case let FileDoesNotExist(path):
-            return "File does not exist at \"\(path.toString())\""
-        case let ChangeDirectoryFail(fromPath, toPath):
-            return "Could not change the directory from \"\(fromPath.toString())\" to \"\(toPath.toString())\""
-        case let CreateSymlinkFail(fromPath, toPath):
-            return "Could not create symlink from \"\(fromPath.toString())\" to \"\(toPath.toString())\""
-        case let CreateFileFail(path):
-            return "Could not create file at \"\(path.toString())\""
-        case let CreateDirectoryFail(path):
-            return "Could not create a directory at \"\(path.toString())\""
-        case let DeleteFileFail(path):
-            return "Could not delete file at \"\(path.toString())\""
-        case let ReadFromFileFail(path):
-            return "Could not read from file at \"\(path.toString())\""
-        case let WriteToFileFail(path):
-            return "Could not write to file at \"\(path.toString())\""
-        case let MoveFileFail(fromPath, toPath):
-            return "Could not move file at \"\(fromPath.toString())\" to \"\(toPath.toString())\""
-        case let CopyFileFail(fromPath, toPath):
-            return "Could not copy file from \"\(fromPath.toString())\" to \"\(toPath.toString())\""
-        case let AttributesChangeFail(path):
-            return "Could not change file attrubutes at \"\(path.toString())\""
+        case let .fileDoesNotExist(path):
+            return "File does not exist at \"\(path.asString)\""
+        case let .changeDirectoryFail(fromPath, toPath):
+            return "Could not change the directory from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
+        case let .createSymlinkFail(fromPath, toPath):
+            return "Could not create symlink from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
+        case let .createFileFail(path):
+            return "Could not create file at \"\(path.asString)\""
+        case let .createDirectoryFail(path):
+            return "Could not create a directory at \"\(path.asString)\""
+        case let .deleteFileFail(path):
+            return "Could not delete file at \"\(path.asString)\""
+        case let .readFromFileFail(path):
+            return "Could not read from file at \"\(path.asString)\""
+        case let .writeToFileFail(path):
+            return "Could not write to file at \"\(path.asString)\""
+        case let .moveFileFail(fromPath, toPath):
+            return "Could not move file at \"\(fromPath.asString)\" to \"\(toPath.asString)\""
+        case let .copyFileFail(fromPath, toPath):
+            return "Could not copy file from \"\(fromPath.asString)\" to \"\(toPath.asString)\""
+        case let .attributesChangeFail(path):
+            return "Could not change file attrubutes at \"\(path.asString)\""
+        case let .isNotDirectory(path):
+            return "Following path is not a directory: \"\(path.asString)\""
         }
     }
 
     /// A file does not exist.
-    case FileDoesNotExist(path: Path)
+    case fileDoesNotExist(path: Path)
 
     /// Could not change the current directory.
-    case ChangeDirectoryFail(from: Path, to: Path)
+    case changeDirectoryFail(from: Path, to: Path)
 
     /// A symbolic link could not be created.
-    case CreateSymlinkFail(from: Path, to: Path)
+    case createSymlinkFail(from: Path, to: Path)
 
     /// A file could not be created.
-    case CreateFileFail(path: Path)
+    case createFileFail(path: Path)
 
     /// A directory could not be created.
-    case CreateDirectoryFail(path: Path)
+    case createDirectoryFail(path: Path)
 
     /// A file could not be deleted.
-    case DeleteFileFail(path: Path)
+    case deleteFileFail(path: Path)
 
     /// A file could not be read from.
-    case ReadFromFileFail(path: Path)
+    case readFromFileFail(path: Path)
 
     /// A file could not be written to.
-    case WriteToFileFail(path: Path)
+    case writeToFileFail(path: Path)
 
     /// A file could not be moved.
-    case MoveFileFail(from: Path, to: Path)
+    case moveFileFail(from: Path, to: Path)
 
     /// A file could not be copied.
-    case CopyFileFail(from: Path, to: Path)
+    case copyFileFail(from: Path, to: Path)
 
     /// One or many attributes could not be changed.
-    case AttributesChangeFail(path: Path)
+    case attributesChangeFail(path: Path)
+
+    /// Following path is not a directory.
+    case isNotDirectory(path: Path)
 }
