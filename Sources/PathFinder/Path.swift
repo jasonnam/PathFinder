@@ -36,30 +36,27 @@ public func +(left: Path, right: String) -> Path {
 }
 
 open class Path {
-    private let fileManager = FileManager.default
 
-    open var rawValue: String = ""
     open var customAttributes: [String: Any] = [:]
+
+    open private(set) var rawValue: String
 
     public init() {
         rawValue = ""
     }
 
-    public convenience init(_ rawValue: String) {
-        self.init()
-        self.rawValue = rawValue
+    public init(string: String) {
+        rawValue = string
     }
 
-    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask, expandTilde: Bool) {
-        self.init(NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0])
+    public init(url: URL) {
+        rawValue = url.absoluteString
     }
 
-    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask) {
-        self.init(searchPathDirectory: searchPathDirectory, domainMask: domainMask, expandTilde: true)
-    }
-
-    public convenience init(searchPathDirectory: FileManager.SearchPathDirectory) {
-        self.init(searchPathDirectory: searchPathDirectory, domainMask: .userDomainMask, expandTilde: true)
+    public init(searchPathDirectory: FileManager.SearchPathDirectory,
+                domainMask: FileManager.SearchPathDomainMask = .userDomainMask,
+                expandTilde: Bool = true) {
+        rawValue = NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0]
     }
 
     open var asString: String {
