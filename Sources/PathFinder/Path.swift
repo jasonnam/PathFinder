@@ -178,4 +178,58 @@ open class Path {
         try FileManager.default.trashItem(at: rawValue, resultingItemURL: nil)
     }
     #endif
+
+    /// Get contents of directory.
+    ///
+    /// - Parameter ignores: Contents to ignore.
+    /// - Returns: Containing directories and files.
+    /// - Throws: Error getting contents of directory.
+    open func contents(ignores: [String] = []) throws -> (directories: [Path], files: [Path]) {
+        if !exists {
+            return ([], [])
+        }
+
+        let contents = try FileManager.default.contentsOfDirectory(atPath: absoluteString)
+
+        var directories: [Path] = []
+        var files: [Path] = []
+
+        for content in contents {
+            if ignores.contains(content) {
+                continue
+            }
+            let contentPath = Path(url: rawValue.appendingPathComponent(content))
+            if contentPath.isDirectory {
+                directories.append(contentPath)
+            } else {
+                files.append(contentPath)
+            }
+        }
+
+        return (directories, files)
+    }
+
+    /// Enumerate contents of directory with block.
+    ///
+    /// - Parameters:
+    ///   - includeSubDirectory: Should include subdirectory.
+    ///   - ignores: Contents to ignore.
+    ///   - contentHandler: Content path handler.
+    /// - Throws: Error getting contents of directory.
+    open func enumerate(includeSubDirectory: Bool = true,
+                        ignores: [String] = [],
+                        contentHandler: ((Path) -> Void)) throws {
+        let (directories, files) = try contents(ignores: ignores)
+        for directory in directories {
+            contentHandler(directory)
+            if includeSubDirectory {
+                try directory.enumerate(includeSubDirectory: true,
+                                        ignores: ignores,
+                                        contentHandler: contentHandler)
+            }
+        }
+        for file in files {
+            contentHandler(file)
+        }
+    }
 }
