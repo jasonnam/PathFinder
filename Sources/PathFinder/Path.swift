@@ -25,14 +25,6 @@
 
 import Foundation
 
-public func +(left: Path, right: Path) -> Path {
-    return left[right]
-}
-
-public func +(left: Path, right: String) -> Path {
-    return left[right]
-}
-
 /// File path.
 open class Path {
 
@@ -41,27 +33,53 @@ open class Path {
     open var customAttributes: [String: Any] = [:]
 
     /// Raw value.
-    open private(set) var rawValue: String
+    open private(set) var rawValue: URL
 
-    // MARK: - Init
+    /// Absolute string value.
+    open var absoluteString: String {
+        return rawValue.absoluteString
+    }
 
-    /// Init with empty value.
-    public init() {
-        rawValue = ""
+    /// Name of the file or directory.
+    open var name: String {
+        return rawValue.lastPathComponent
+    }
+
+    /// File extension.
+    open var fileExtension: String {
+        return rawValue.pathExtension
+    }
+
+    /// File exists.
+    open var exists: Bool {
+        return FileManager.default.fileExists(atPath: rawValue.absoluteString)
+    }
+
+    /// If the path is directory or not.
+    open var isDirectory: Bool {
+        var isDir: ObjCBool = false
+        FileManager.default.fileExists(atPath: rawValue.absoluteString, isDirectory: &isDir)
+        return isDir.boolValue
+    }
+
+    /// Parent path.
+    open var parent: Path {
+        return Path(url: rawValue.deletingLastPathComponent())
     }
 
     /// Init with string value.
     ///
     /// - Parameter string: Raw value.
-    public init(string: String) {
-        rawValue = string
+    public init?(string: String) {
+        guard let url = URL(string: string) else { return nil }
+        rawValue = url
     }
 
     /// Init with URL.
     ///
     /// - Parameter url: Raw value.
     public init(url: URL) {
-        rawValue = url.absoluteString
+        rawValue = url
     }
 
     /// Init with search path directory.
@@ -75,168 +93,48 @@ open class Path {
     public init(searchPathDirectory: FileManager.SearchPathDirectory,
                 domainMask: FileManager.SearchPathDomainMask = .userDomainMask,
                 expandTilde: Bool = true) {
-        rawValue = NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0]
+        let path = NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0]
+        rawValue = URL(string: path)!
     }
 
-    open var asString: String {
-        return rawValue
+    /// Create directory at sub path.
+    ///
+    /// - Parameters:
+    ///   - subPath: Relative path to directory.
+    ///   - intermediateDirectories: Create intermediate directories.
+    ///   - attributes: Directory attributes.
+    /// - Returns: Created directory full path.
+    /// - Throws: Create directory error.
+    @discardableResult open func createDirectory(atSubPath subPath: String,
+                                                 withIntermediateDirectories intermediateDirectories: Bool = true,
+                                                 attributes: [FileAttributeKey: Any]? = nil) throws -> Path {
+        let targetURL = rawValue.appendingPathComponent(subPath)
+        try FileManager.default.createDirectory(at: targetURL,
+                                                withIntermediateDirectories: intermediateDirectories,
+                                                attributes: attributes)
+        return Path(url: targetURL)
     }
 
-    open var asURL: URL {
-        return URL(fileURLWithPath: rawValue)
-    }
-
-    open var name: String {
-        return rawValue.lastPathComponent
-    }
-
-    open var exists: Bool {
-        return fileManager.fileExists(atPath: rawValue)
-    }
-
-    open var isDirectory: Bool {
-        var isDir: ObjCBool = false
-        fileManager.fileExists(atPath: rawValue, isDirectory: &isDir)
-        return isDir.boolValue
-    }
-
-    open var fileExtension: String {
-        return rawValue.lastPathComponent.pathExtension
-    }
-
-    open var parent: Path {
-        return Path(rawValue.stringByDeletingLastPathComponent)
-    }
-
-    open var data: Data? {
-        return fileManager.contents(atPath: rawValue)
-    }
-
-    open var dataAsString: String {
-        return (try? NSString(contentsOfFile: rawValue, encoding: String.Encoding.utf8.rawValue) as String) ?? ""
-    }
-
-    open func newDirectory(at subPath: String, withIntermediateDirectories intermediateDirectories: Bool = false, with attributes: [String: Any]? = nil) throws {
-        do {
-            let newPath = rawValue.stringByAppending(pathComponent: subPath)
-            try fileManager.createDirectory(atPath: newPath, withIntermediateDirectories: intermediateDirectories, attributes: attributes)
-        } catch {
-            throw error
+    /// Create file at sub path.
+    ///
+    /// - Parameters:
+    ///   - subPath: Relative path to file.
+    ///   - contents: Content data.
+    ///   - attributes: File attributes.
+    /// - Returns: Created file full path.
+    /// - Throws: Create file error. `CreateFileError`
+    @discardableResult open func createFile(atSubPath subPath: String,
+                                            contents: Data?,
+                                            attributes: [FileAttributeKey: Any]? = nil) throws -> Path {
+        let targetPath = Path(url: rawValue.appendingPathComponent(subPath))
+        if targetPath.exists {
+            throw CreateFileError.fileAlreadyExists(targetPath)
         }
-    }
-
-    open func touch(name: String, contents: Data?, attributes: [String: Any]? = nil) throws {
-        if !fileManager.createFile(atPath: self[name].asString, contents: contents, attributes: attributes) {
-            throw PathError.createFileFail(path: self[name])
+        if !FileManager.default.createFile(atPath: targetPath.absoluteString,
+                                           contents: contents,
+                                           attributes: attributes) {
+            throw CreateFileError.cannotCreateFile(targetPath)
         }
-    }
-
-    open func remove() throws {
-        do {
-            try fileManager.removeItem(atPath: rawValue)
-        } catch {
-            throw error
-        }
-    }
-
-    open func rename(to name: String) throws {
-        do {
-            let newPath = rawValue.stringByDeletingLastPathComponent.stringByAppending(pathComponent: name)
-            try fileManager.moveItem(atPath: rawValue, toPath: newPath)
-        } catch {
-            throw error
-        }
-    }
-
-    open func copy(to path: Path) throws {
-        do {
-            try fileManager.copyItem(atPath: rawValue, toPath: path.asString)
-        } catch {
-            throw error
-        }
-    }
-
-    open func move(to path: Path) throws {
-        do {
-            try fileManager.moveItem(atPath: rawValue, toPath: path.asString)
-        } catch {
-            throw error
-        }
-    }
-
-    open func checkUnique(_ name: String, caseSensitive: Bool) throws -> Bool {
-        if !isDirectory {
-            throw PathError.isNotDirectory(path: self)
-        }
-
-        var unique = true
-
-        let nameToCompare = caseSensitive ? name : name.lowercased()
-
-        do {
-            try enumerate { path in
-                let pathName = caseSensitive ? path.name : path.name.lowercased()
-                if nameToCompare == pathName {
-                    unique = false
-                }
-            }
-        } catch {
-            return false
-        }
-        
-        return unique
-    }
-
-    open func contents(exclude: [String]? = nil) throws -> [Path] {
-        guard exists else {
-            return []
-        }
-
-        do {
-            let contents = try fileManager.contentsOfDirectory(atPath: rawValue)
-
-            var folder: [Path] = []
-            var file: [Path] = []
-
-            contents.forEach { content in
-                let contentPath = Path(rawValue.stringByAppending(pathComponent: content))
-
-                if !(exclude != nil && exclude!.contains(content)) {
-                    if contentPath.isDirectory {
-                        folder.append(contentPath)
-                    } else {
-                        file.append(contentPath)
-                    }
-                }
-            }
-
-            folder.sort { $0.name < $1.name }
-            file.sort { $0.name < $1.name }
-
-            return folder + file
-        } catch {
-            throw error
-        }
-    }
-
-    open func enumerate(includeSubDirectory: Bool = false, exclude: [String]? = nil, block: ((Path) -> Void)) throws {
-        do {
-            try contents(exclude: exclude).forEach { content in
-                block(content)
-                if content.isDirectory && includeSubDirectory {
-                    try content.enumerate(includeSubDirectory: true, block: block)
-                }
-            }
-        } catch {
-            throw error
-        }
-    }
-
-    open subscript(name: String) -> Path {
-        return Path(rawValue.stringByAppending(pathComponent: name))
-    }
-
-    open subscript(path: Path) -> Path {
-        return Path(rawValue.stringByAppending(pathComponent: path.rawValue))
+        return targetPath
     }
 }

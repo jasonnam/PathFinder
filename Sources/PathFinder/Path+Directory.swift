@@ -41,7 +41,7 @@ public extension Path {
     /// Returns the path to either the user’s or
     /// application’s home directory, depending on the platform.
     public static var homeDirectory: Path {
-        return Path(string: NSHomeDirectory())
+        return Path(string: NSHomeDirectory())!
     }
 
     /// Returns the path to a given user’s home directory.
@@ -55,12 +55,12 @@ public extension Path {
 
     /// Returns the root directory of the user’s system.
     public static var openStepRootDirectory: Path {
-        return Path(string: NSOpenStepRootDirectory())
+        return Path(string: NSOpenStepRootDirectory())!
     }
 
     /// Returns the path to the user's temporary directory.
     public static var temporaryDirectory: Path {
-        return Path(string: NSTemporaryDirectory())
+        return Path(string: NSTemporaryDirectory())!
     }
 
     /// Returns the logon name of the current user.
