@@ -155,6 +155,14 @@ open class Path {
         try FileManager.default.moveItem(at: rawValue, to: path.rawValue)
     }
 
+    /// Copy item.
+    ///
+    /// - Parameter path: Target path.
+    /// - Throws: Error copying item.
+    open func copy(to path: Path) throws {
+        try FileManager.default.copyItem(at: rawValue, to: path.rawValue)
+    }
+
     /// Remove item.
     ///
     /// - Throws: Error removing item.
