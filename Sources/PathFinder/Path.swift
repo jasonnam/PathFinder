@@ -157,10 +157,16 @@ open class Path {
     ///   - attributes: Directory attributes.
     /// - Returns: Created directory full path.
     /// - Throws: Create directory error.
-    @discardableResult open func createDirectory(atSubPath subPath: String,
+    @discardableResult
+    open func createDirectory(atSubPath subPath: String? = nil,
                                                  withIntermediateDirectories intermediateDirectories: Bool = true,
                                                  attributes: [FileAttributeKey: Any]? = nil) throws -> Path {
-        let targetURL = rawValue.appendingPathComponent(subPath)
+        let targetURL: URL
+        if let subPath = subPath {
+            targetURL = rawValue.appendingPathComponent(subPath)
+        } else {
+            targetURL = rawValue
+        }
         try FileManager.default.createDirectory(at: targetURL,
                                                 withIntermediateDirectories: intermediateDirectories,
                                                 attributes: attributes)
@@ -175,10 +181,16 @@ open class Path {
     ///   - attributes: File attributes.
     /// - Returns: Created file full path.
     /// - Throws: Create file error. `CreateFileError`
-    @discardableResult open func createFile(atSubPath subPath: String,
+    @discardableResult
+    open func createFile(atSubPath subPath: String? = nil,
                                             contents: Data?,
                                             attributes: [FileAttributeKey: Any]? = nil) throws -> Path {
-        let targetPath = Path(url: rawValue.appendingPathComponent(subPath))
+        let targetPath: Path
+        if let subPath = subPath {
+            targetPath = Path(url: rawValue.appendingPathComponent(subPath))
+        } else {
+            targetPath = self
+        }
         if targetPath.exists {
             throw CreateFileError.fileAlreadyExists(targetPath)
         }
@@ -195,7 +207,8 @@ open class Path {
     /// - Parameter newName: New name.
     /// - Returns: Renamed item path.
     /// - Throws: Error moving item.
-    @discardableResult open func rename(to newName: String) throws -> Path {
+    @discardableResult
+    open func rename(to newName: String) throws -> Path {
         let newURL = rawValue.deletingLastPathComponent().appendingPathComponent(newName)
         try FileManager.default.moveItem(at: rawValue, to: newURL)
         return Path(url: newURL)
