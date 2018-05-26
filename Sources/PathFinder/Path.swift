@@ -141,10 +141,12 @@ open class Path {
     /// Rename item.
     ///
     /// - Parameter newName: New name.
+    /// - Returns: Renamed item path.
     /// - Throws: Error moving item.
-    open func rename(to newName: String) throws {
+    @discardableResult open func rename(to newName: String) throws -> Path {
         let newURL = rawValue.deletingLastPathComponent().appendingPathComponent(newName)
         try FileManager.default.moveItem(at: rawValue, to: newURL)
+        return Path(url: newURL)
     }
 
     /// Move item.
