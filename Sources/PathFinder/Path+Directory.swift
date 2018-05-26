@@ -26,11 +26,25 @@
 //  Refer:
 //  https://developer.apple.com/documentation/foundation/filemanager
 //  https://developer.apple.com/documentation/foundation/filemanager.searchpathdirectory
+//  https://developer.apple.com/documentation/foundation/filemanager/1412643-containerurl
 
 import Foundation
 
 // MARK: - Directory
 public extension Path {
+
+    /// Returns the container directory associated with
+    /// the specified security application group identifier.
+    ///
+    /// - Parameter securityApplicationGroupIdentifier: A string that names the group whose
+    ///                                                 shared directory you want to obtain.
+    /// - Returns: Container directory path.
+    public static func containerURL(forSecurityApplicationGroupIdentifier
+        securityApplicationGroupIdentifier: String) -> Path? {
+        guard let containerURL = FileManager.default.containerURL(
+            forSecurityApplicationGroupIdentifier: securityApplicationGroupIdentifier) else { return nil }
+        return Path(url: containerURL)
+    }
 
     /// Returns a string containing
     /// the full name of the current user.
