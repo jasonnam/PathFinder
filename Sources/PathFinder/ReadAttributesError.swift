@@ -1,5 +1,5 @@
 //
-//  PathAttributesError.swift
+//  ReadAttributesError.swift
 //  PathFinder
 //
 //  Copyright (c) 2018 Jason Nam (https://jasonnam.com)
@@ -25,11 +25,11 @@
 
 import Foundation
 
-/// Reading attributes error.
+/// Read attributes error.
 ///
 /// - cannotReadAttributes: Cannot read attributes.
 /// - attributeNotFound: Attribute not found for key.
-public enum PathAttributesError: Error {
+public enum ReadAttributesError: Error {
     case cannotReadAttributes(Error)
     case attributeNotFound(FileAttributeKey)
 }

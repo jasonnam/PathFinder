@@ -38,9 +38,9 @@ public extension Path {
     /// - Throws: Error reading attributes. `PathAttributesError`
     public func attributes() throws -> [FileAttributeKey : Any] {
         do {
-            return try FileManager.default.attributesOfItem(atPath: rawValue)
+            return try FileManager.default.attributesOfItem(atPath: rawValue.absoluteString)
         } catch {
-            throw PathAttributesError.cannotReadAttributes(error)
+            throw ReadAttributesError.cannotReadAttributes(error)
         }
     }
 
@@ -51,7 +51,7 @@ public extension Path {
     /// - Throws: Error reading attribute. `PathAttributesError`
     public func attribute<T>(forKey fileAttributeKey: FileAttributeKey) throws -> T {
         guard let attribute = try attributes()[fileAttributeKey] as? T else {
-            throw PathAttributesError.attributeNotFound(fileAttributeKey)
+            throw ReadAttributesError.attributeNotFound(fileAttributeKey)
         }
         return attribute
     }
