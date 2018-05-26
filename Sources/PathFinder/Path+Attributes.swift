@@ -32,11 +32,19 @@ import Foundation
 // MARK: - Attributes
 public extension Path {
 
+    /// Set attributes.
+    ///
+    /// - Parameter attributes: Attributes to update.
+    /// - Throws: Error setting attributes.
+    public func setAttributes(_ attributes: [FileAttributeKey: Any]) throws {
+        try FileManager.default.setAttributes(attributes, ofItemAtPath: absoluteString)
+    }
+
     /// Returns the attributes of the item.
     ///
     /// - Returns: Attributes of the item.
     /// - Throws: Error reading attributes. `PathAttributesError`
-    public func attributes() throws -> [FileAttributeKey : Any] {
+    public func attributes() throws -> [FileAttributeKey: Any] {
         do {
             return try FileManager.default.attributesOfItem(atPath: rawValue.absoluteString)
         } catch {
