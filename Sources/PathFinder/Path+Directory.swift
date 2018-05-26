@@ -55,7 +55,7 @@ public extension Path {
     /// Returns the path to either the user’s or
     /// application’s home directory, depending on the platform.
     public static var homeDirectory: Path {
-        return Path(string: NSHomeDirectory())!
+        return Path(fileURLWithPath: NSHomeDirectory())
     }
 
     /// Returns the path to a given user’s home directory.
@@ -64,17 +64,17 @@ public extension Path {
     /// - Returns: The path to the home directory for the user specified by userName.
     public static func homeDirectory(forUser userName: String) -> Path? {
         guard let homeDirectoryForUser = NSHomeDirectoryForUser(userName) else { return nil }
-        return Path(string: homeDirectoryForUser)
+        return Path(fileURLWithPath: homeDirectoryForUser)
     }
 
     /// Returns the root directory of the user’s system.
     public static var openStepRootDirectory: Path {
-        return Path(string: NSOpenStepRootDirectory())!
+        return Path(fileURLWithPath: NSOpenStepRootDirectory())
     }
 
     /// Returns the path to the user's temporary directory.
     public static var temporaryDirectory: Path {
-        return Path(string: NSTemporaryDirectory())!
+        return Path(fileURLWithPath: NSTemporaryDirectory())
     }
 
     /// Returns the logon name of the current user.

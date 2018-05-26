@@ -67,15 +67,67 @@ open class Path {
         return Path(url: rawValue.deletingLastPathComponent())
     }
 
-    /// Init with string value.
+    /// Initializes with string value.
     ///
-    /// - Parameter string: Raw value.
+    /// - Parameter string: Raw URL value.
     public init?(string: String) {
         guard let url = URL(string: string) else { return nil }
         rawValue = url
     }
 
-    /// Init with URL.
+    /// Initializes with a string, relative to another URL.
+    ///
+    /// - Parameters:
+    ///   - string: Raw URL value.
+    ///   - url: Relative URL.
+    public init?(string: String, relativeTo url: URL?) {
+        guard let url = URL(string: string, relativeTo: url) else { return nil }
+        rawValue = url
+    }
+
+    /// Initializes a newly created file URL
+    /// referencing the local file or directory at path.
+    ///
+    /// - Parameter fileURLWithPath: File URL with path.
+    public init(fileURLWithPath: String) {
+        rawValue = URL(fileURLWithPath: fileURLWithPath)
+    }
+
+    /// Initializes a newly created file URL
+    /// referencing the local file or directory at path.
+    ///
+    /// - Parameters:
+    ///   - fileURLWithPath: File URL with path.
+    ///   - isDirectory: Path is directory or not.
+    public init(fileURLWithPath: String, isDirectory: Bool) {
+        rawValue = URL(fileURLWithPath: fileURLWithPath, isDirectory: isDirectory)
+    }
+
+    /// Initializes a newly created file URL referencing
+    /// the local file or directory at path, relative to a base URL.
+    ///
+    /// - Parameters:
+    ///   - fileURLWithPath: File URL with path.
+    ///   - isDirectory: Path is directory or not.
+    ///   - relativeTo: Relative URL.
+    @available(OSX 10.11, *)
+    public init(fileURLWithPath: String, isDirectory: Bool, relativeTo url: URL?) {
+        rawValue = URL(fileURLWithPath: fileURLWithPath,
+                       isDirectory: isDirectory, relativeTo: url)
+    }
+
+    /// Initializes a newly created file URL referencing
+    /// the local file or directory at path, relative to a base URL.
+    ///
+    /// - Parameters:
+    ///   - fileURLWithPath: File URL with path.
+    ///   - relativeTo: Relative URL.
+    @available(OSX 10.11, *)
+    public init(fileURLWithPath: String, relativeTo url: URL?) {
+        rawValue = URL(fileURLWithPath: fileURLWithPath, relativeTo: url)
+    }
+
+    /// Initializes with URL.
     ///
     /// - Parameter url: Raw value.
     public init(url: URL) {
@@ -94,7 +146,7 @@ open class Path {
                 domainMask: FileManager.SearchPathDomainMask = .userDomainMask,
                 expandTilde: Bool = true) {
         let path = NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, expandTilde)[0]
-        rawValue = URL(string: path)!
+        rawValue = URL(fileURLWithPath: path)
     }
 
     /// Create directory at sub path.
