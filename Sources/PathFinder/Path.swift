@@ -154,4 +154,20 @@ open class Path {
     open func move(to path: Path) throws {
         try FileManager.default.moveItem(at: rawValue, to: path.rawValue)
     }
+
+    /// Remove item.
+    ///
+    /// - Throws: Error removing item.
+    open func remove() throws {
+        try FileManager.default.removeItem(at: rawValue)
+    }
+
+    #if os(macOS)
+    /// Trash item.
+    ///
+    /// - Throws: Error trashing item.
+    open func trash() throws {
+        try FileManager.default.trashItem(at: rawValue, resultingItemURL: nil)
+    }
+    #endif
 }
