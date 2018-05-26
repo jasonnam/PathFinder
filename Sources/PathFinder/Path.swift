@@ -52,13 +52,13 @@ open class Path {
 
     /// File exists.
     open var exists: Bool {
-        return FileManager.default.fileExists(atPath: rawValue.absoluteString)
+        return FileManager.default.fileExists(atPath: rawValue.path)
     }
 
     /// If the path is directory or not.
     open var isDirectory: Bool {
         var isDir: ObjCBool = false
-        FileManager.default.fileExists(atPath: rawValue.absoluteString, isDirectory: &isDir)
+        FileManager.default.fileExists(atPath: rawValue.path, isDirectory: &isDir)
         return isDir.boolValue
     }
 
@@ -167,7 +167,7 @@ open class Path {
         } else {
             targetURL = rawValue
         }
-        try FileManager.default.createDirectory(at: targetURL,
+        try FileManager.default.createDirectory(atPath: targetURL.path,
                                                 withIntermediateDirectories: intermediateDirectories,
                                                 attributes: attributes)
         return Path(url: targetURL)
@@ -183,7 +183,7 @@ open class Path {
     /// - Throws: Create file error. `CreateFileError`
     @discardableResult
     open func createFile(atSubPath subPath: String? = nil,
-                                            contents: Data?,
+                                            contents: Data? = nil,
                                             attributes: [FileAttributeKey: Any]? = nil) throws -> Path {
         let targetPath: Path
         if let subPath = subPath {
@@ -194,7 +194,7 @@ open class Path {
         if targetPath.exists {
             throw CreateFileError.fileAlreadyExists(targetPath)
         }
-        if !FileManager.default.createFile(atPath: targetPath.absoluteString,
+        if !FileManager.default.createFile(atPath: targetPath.rawValue.path,
                                            contents: contents,
                                            attributes: attributes) {
             throw CreateFileError.cannotCreateFile(targetPath)
