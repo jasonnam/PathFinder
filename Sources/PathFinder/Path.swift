@@ -241,7 +241,7 @@ open class Path {
             return ([], [])
         }
 
-        let contents = try FileManager.default.contentsOfDirectory(atPath: rawValue.path)
+        let contents = try FileManager.default.contentsOfDirectory(atPath: path)
 
         var directories: [Path] = []
         var files: [Path] = []
