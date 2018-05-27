@@ -43,7 +43,7 @@ open class Path {
     /// If the path is directory or not.
     open var isDirectory: Bool {
         var isDir: ObjCBool = false
-        FileManager.default.fileExists(atPath: standardizedFileURL.absoluteString, isDirectory: &isDir)
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDir)
         return isDir.boolValue
     }
 
