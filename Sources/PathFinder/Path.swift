@@ -40,6 +40,11 @@ open class Path {
         return rawValue.absoluteString
     }
 
+    /// Path component.
+    open var path: String {
+        return rawValue.path
+    }
+
     /// Name of the file or directory.
     open var name: String {
         return rawValue.lastPathComponent
