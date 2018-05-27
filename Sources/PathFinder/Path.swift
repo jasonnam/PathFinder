@@ -45,6 +45,11 @@ open class Path {
         return rawValue.path
     }
 
+    /// Standardized file URL.
+    open var standardizedFileURL: URL {
+        return rawValue.standardizedFileURL
+    }
+
     /// Name of the file or directory.
     open var name: String {
         return rawValue.lastPathComponent
