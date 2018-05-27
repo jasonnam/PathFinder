@@ -37,7 +37,7 @@ open class Path {
 
     /// File exists.
     open var exists: Bool {
-        return FileManager.default.fileExists(atPath: standardizedFileURL.absoluteString)
+        return FileManager.default.fileExists(atPath: path)
     }
 
     /// If the path is directory or not.
