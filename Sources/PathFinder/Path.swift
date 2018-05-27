@@ -152,7 +152,7 @@ open class Path {
         } else {
             targetURL = rawValue
         }
-        try FileManager.default.createDirectory(atPath: targetURL.path,
+        try FileManager.default.createDirectory(at: targetURL,
                                                 withIntermediateDirectories: intermediateDirectories,
                                                 attributes: attributes)
         return Path(url: targetURL)
