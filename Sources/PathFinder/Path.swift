@@ -35,31 +35,6 @@ open class Path {
     /// Raw value.
     open private(set) var rawValue: URL
 
-    /// Absolute string value.
-    open var absoluteString: String {
-        return rawValue.absoluteString
-    }
-
-    /// Path component.
-    open var path: String {
-        return rawValue.path
-    }
-
-    /// Standardized file URL.
-    open var standardizedFileURL: URL {
-        return rawValue.standardizedFileURL
-    }
-
-    /// Name of the file or directory.
-    open var name: String {
-        return rawValue.lastPathComponent
-    }
-
-    /// File extension.
-    open var fileExtension: String {
-        return rawValue.pathExtension
-    }
-
     /// File exists.
     open var exists: Bool {
         return FileManager.default.fileExists(atPath: standardizedFileURL.absoluteString)
