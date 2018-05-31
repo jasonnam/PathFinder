@@ -284,7 +284,7 @@ open class Path {
                 continue
             }
             var elementString = element.absoluteString
-            elementString.removeFirst(absoluteString.count + 1)
+            elementString.removeFirst(absoluteString.count)
             if let contentPath = Path(string: elementString, relativeTo: rawValue) {
                 paths.append(contentPath)
             } else {
