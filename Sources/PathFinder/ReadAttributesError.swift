@@ -32,4 +32,13 @@ import Foundation
 public enum ReadAttributesError: Error {
     case cannotReadAttributes(Error)
     case attributeNotFound(FileAttributeKey)
+
+    public var localizedDescription: String {
+        switch self {
+        case .cannotReadAttributes(let error):
+            return "Cannot read attributes: \(error.localizedDescription)"
+        case .attributeNotFound(let key):
+            return "Attribute not found for \(key.rawValue)"
+        }
+    }
 }
