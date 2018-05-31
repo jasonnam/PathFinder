@@ -279,14 +279,16 @@ open class Path {
                                                               errorHandler: nil) else {
             throw EnumerateContentError.cannotCreateEnumerator(self)
         }
-        while let element = enumerator.nextObject() as? String {
-            if ignores.contains(element) {
+        while let element = enumerator.nextObject() as? URL {
+            if ignores.contains(element.lastPathComponent) {
                 continue
             }
-            if let contentPath = Path(string: element, relativeTo: rawValue) {
+            var elementString = element.absoluteString
+            elementString.removeFirst(absoluteString.count + 1)
+            if let contentPath = Path(string: elementString, relativeTo: rawValue) {
                 paths.append(contentPath)
             } else {
-                throw EnumerateContentError.cannotConvertToURL(rawValue, element)
+                throw EnumerateContentError.cannotConvertToURL(rawValue, element.absoluteString)
             }
         }
         return paths
