@@ -241,47 +241,54 @@ open class Path {
             return ([], [])
         }
 
-        let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-
         var directories: [Path] = []
         var files: [Path] = []
 
-        for content in contents {
-            if ignores.contains(content) {
-                continue
-            }
-            let contentPath = Path(url: rawValue.appendingPathComponent(content))
-            if contentPath.isDirectory {
-                directories.append(contentPath)
+        let options: FileManager.DirectoryEnumerationOptions = [
+            .skipsPackageDescendants,
+            .skipsSubdirectoryDescendants
+        ]
+        for path in try enumerated(options: options, ignores: ignores) {
+            if path.isDirectory {
+                directories.append(path)
             } else {
-                files.append(contentPath)
+                files.append(path)
             }
         }
 
         return (directories, files)
     }
 
-    /// Enumerate contents of directory with block.
+    /// Enumerate contents of directory.
     ///
     /// - Parameters:
-    ///   - includeSubDirectory: Should include subdirectory.
+    ///   - options: Directory enumeration options. `FileManager.DirectoryEnumerationOptions`
     ///   - ignores: Contents to ignore.
-    ///   - contentHandler: Content path handler.
+    /// - Returns: Enumerated paths.
     /// - Throws: Error getting contents of directory.
-    open func enumerate(includeSubDirectory: Bool = true,
-                        ignores: [String] = [],
-                        contentHandler: ((Path) -> Void)) throws {
-        let (directories, files) = try contents(ignores: ignores)
-        for directory in directories {
-            contentHandler(directory)
-            if includeSubDirectory {
-                try directory.enumerate(includeSubDirectory: true,
-                                        ignores: ignores,
-                                        contentHandler: contentHandler)
+    open func enumerated(options: FileManager.DirectoryEnumerationOptions = [.skipsPackageDescendants],
+                         ignores: [String] = []) throws -> [Path] {
+        if !exists {
+            return []
+        }
+
+        var paths: [Path] = []
+        guard let enumerator = FileManager.default.enumerator(at: rawValue,
+                                                              includingPropertiesForKeys: nil,
+                                                              options: options,
+                                                              errorHandler: nil) else {
+            throw EnumerateContentError.cannotCreateEnumerator(self)
+        }
+        while let element = enumerator.nextObject() as? String {
+            if ignores.contains(element) {
+                continue
+            }
+            if let contentPath = Path(string: element, relativeTo: rawValue) {
+                paths.append(contentPath)
+            } else {
+                throw EnumerateContentError.cannotConvertToURL(rawValue, element)
             }
         }
-        for file in files {
-            contentHandler(file)
-        }
+        return paths
     }
 }
