@@ -54,6 +54,16 @@ public extension Path {
         return rawValue.path
     }
 
+    /// Base URL.
+    public var baseURL: URL? {
+        return rawValue.baseURL
+    }
+
+    /// Relative path.
+    public var relativePath: String {
+        return rawValue.relativePath
+    }
+
     /// Name of the file or directory.
     public var name: String {
         return rawValue.lastPathComponent
