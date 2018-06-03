@@ -283,13 +283,7 @@ open class Path {
             if ignores.contains(element.lastPathComponent) {
                 continue
             }
-            var elementString = element.absoluteString
-            elementString.removeFirst(absoluteString.count)
-            if let contentPath = Path(string: elementString, relativeTo: rawValue) {
-                paths.append(contentPath)
-            } else {
-                throw EnumerateContentError.cannotConvertToURL(rawValue, element.absoluteString)
-            }
+            paths.append(Path(url: element))
         }
         return paths
     }

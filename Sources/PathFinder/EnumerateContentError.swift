@@ -28,17 +28,13 @@ import Foundation
 /// Enumerate content error.
 ///
 /// - cannotCreateEnumerator: Cannot create enumerator.
-/// - cannotConvertToURL: Cannot convert to URL.
 public enum EnumerateContentError: Error {
     case cannotCreateEnumerator(Path)
-    case cannotConvertToURL(URL, String)
 
     public var localizedDescription: String {
         switch self {
         case .cannotCreateEnumerator(let path):
             return "Cannot create enumerator for \(path.path)"
-        case .cannotConvertToURL(let url, let subpath):
-            return "Cannot convert to URL \(url.absoluteString) \(subpath)"
         }
     }
 }
