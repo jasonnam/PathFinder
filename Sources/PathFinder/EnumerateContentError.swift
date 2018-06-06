@@ -30,8 +30,12 @@ import Foundation
 /// - cannotCreateEnumerator: Cannot create enumerator.
 public enum EnumerateContentError: Error {
     case cannotCreateEnumerator(Path)
+}
 
-    public var localizedDescription: String {
+// MARK: - LocalizedError
+extension EnumerateContentError: LocalizedError {
+
+    public var errorDescription: String? {
         switch self {
         case .cannotCreateEnumerator(let path):
             return "Cannot create enumerator for \(path.path)"

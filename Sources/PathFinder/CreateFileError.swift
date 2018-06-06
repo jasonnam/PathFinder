@@ -32,8 +32,12 @@ import Foundation
 public enum CreateFileError: Error {
     case fileAlreadyExists(Path)
     case cannotCreateFile(Path)
+}
 
-    public var localizedDescription: String {
+// MARK: - LocalizedError
+extension CreateFileError: LocalizedError {
+
+    public var errorDescription: String? {
         switch self {
         case .fileAlreadyExists(let path):
             return "File already exists at \(path.path)"
