@@ -266,7 +266,7 @@ open class Path {
     ///   - ignores: Contents to ignore.
     /// - Returns: Enumerated paths.
     /// - Throws: Error getting contents of directory.
-    open func enumerated(options: FileManager.DirectoryEnumerationOptions = [.skipsPackageDescendants],
+    open func enumerated(options: FileManager.DirectoryEnumerationOptions = [],
                          ignores: [String] = []) throws -> [Path] {
         if !exists {
             return []
